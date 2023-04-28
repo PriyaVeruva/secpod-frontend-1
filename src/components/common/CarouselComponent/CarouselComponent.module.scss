@@ -1,0 +1,145 @@
+@use "../../../styles/abstracts/colors" as *;
+@use "../../../styles/abstracts/typography" as *;
+
+$font-family-3: "Futura-Medium";
+
+.contains {
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+	width: 70% !important;
+	margin: 0 auto;
+	padding-top: 10vh;
+}
+
+.carouselVisibility {
+	display: flex !important;
+	justify-content: center;
+	align-items: center;
+	background-color: $background-color-1;
+	flex-direction: row-reverse;
+}
+
+.carouselImageSection {
+	margin: 0 80px 0 0 !important;
+}
+
+.carousel2ImageSection {
+	width: 50%;
+}
+
+.carouselContentSection {
+	display: flex;
+	flex-direction: column;
+	text-align: start;
+}
+
+.carouselContentSection2 {
+	margin-inline: 40px;
+}
+
+.carouselHeader {
+	font-size: 32px;
+	font-family: $barlow-bold;
+	color: $primary-color;
+	margin-bottom: 10px;
+}
+
+.carouselHeaderContent {
+	font-size: 40px;
+	color: $color-10;
+	text-align: start;
+	margin-bottom: 40px;
+	font-family: $barlow-bold;
+}
+
+.carouselSubHeader {
+	font-size: 20px;
+	font-family: $barlow-medium;
+	color: $secondary-color;
+	margin-bottom: 20px;
+}
+
+.carouselsubHeaderContent {
+	font-size: 32px;
+	color: $dark-para;
+	text-align: start;
+	font-family: $font-family-3;
+}
+
+.carouselParagraphContent {
+	font-size: 18px;
+	font-family: $font-family-3;
+	color: $dark-para;
+}
+@media only screen and (width <= 768px) {
+	.carouselHeader {
+		font-size: 24px;
+	}
+
+	.carouselSubHeader {
+		font-size: 18px;
+	}
+
+	.carouselParagraphContent {
+		font-size: 16px;
+	}
+
+	.carouselImageSection {
+		margin: 0 80px 0 0 !important;
+		width: 230px !important;
+	}
+
+	.contains {
+		width: 85% !important;
+	}
+
+	.carouselHeaderContent {
+		font-size: 24px;
+		margin-block: 20px;
+	}
+
+	.carouselsubHeaderContent {
+		font-size: 18px;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+}
+@media only screen and (width <= 744px) {
+	.carouselContentSection2 {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.carouselVisibility {
+		flex-direction: column;
+	}
+
+	.carousel2ImageSection {
+		margin-top: 40px;
+	}
+
+	.contains {
+		flex-direction: column;
+	}
+
+	.carouselContentSection {
+		text-align: center;
+		margin-top: 20px;
+	}
+
+	.carouselImageSection {
+		margin: 0 !important;
+	}
+}
+@media only screen and (width <= 425px) {
+	.carouselHeaderContent {
+		font-size: 18px;
+	}
+
+	.carouselsubHeaderContent {
+		font-size: 14px;
+	}
+}

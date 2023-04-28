@@ -1,15 +1,33 @@
 // add types here
-
-@import 'https://fonts.googleapis.com/css2?family=Barlow&display=swap';
+@import "https://fonts.googleapis.com/css2?family=Barlow&display=swap";
 
 // @import url('../../assets/fonts/futura/futura\ medium\ bt.ttf');
 
 @font-face {
-    font-family: futura-medium;
-    src: url('../../assets/fonts/futura/futura\ medium\ bt.ttf') format('truetype');
-    font-style: normal;
-    font-weight: 400;
-  }
+	font-family: Barlow-SemiBold;
+	src: url("../../assets/fonts/Barlow/Barlow-SemiBold.ttf");
+}
+@font-face {
+	font-family: Barlow-ExtraBold;
+	src: url("../../assets/fonts/Barlow/Barlow-ExtraBold.ttf");
+}
+@font-face {
+	font-family: Barlow-Bold;
+	src: url("../../assets/fonts/Barlow/Barlow-Bold.ttf");
+}
+@font-face {
+	font-family: Futura-Bold;
+	src: url("../../assets/fonts/Futura/Futura\ Bold.ttf");
+}
+@font-face {
+	font-family: Barlow-Medium;
+	src: url("../../assets/fonts/Barlow/Barlow-Medium.ttf");
+}
 
-$barlow: 'Barlow', sans-serif;
-$futura: futura-medium, sans-serif;
+$barlow-bold: "Barlow-Bold", sans-serif;
+$barlow-semi-bold: "Barlow-SemiBold";
+$barlow-extra-bold: "Barlow-ExtraBold";
+$barlow-medium: "Barlow-Medium";
+$futura-bold: "Futura-Bold";
+
+// $futuraMedium:'Futura-Medium'

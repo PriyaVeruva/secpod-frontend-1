@@ -1,0 +1,1 @@
+/* API Domains*/export const SIGNUP_API = '/sanernow/api/users/signin';
