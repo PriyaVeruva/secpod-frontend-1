@@ -1,0 +1,88 @@
+@use "../../styles/abstracts/colors.scss" as *;
+@use "../../styles/abstracts/typography.scss" as *;
+/* stylelint-disable */
+
+.signUpFormContents {
+	padding: 5vh;
+
+	.MuiFormControl-root.MuiFormControl-fullWidth {
+		margin-bottom: 22px;
+	}
+
+	.MuiOutlinedInput-notchedOutline {
+		border-radius: 8px !important;
+		border: solid 1px $dark-para;
+	}
+
+	.MuiInputBase-input.MuiOutlinedInput-input {
+		padding: 25px 431px 23px 24px;
+	}
+
+	.MuiButtonBase-root.MuiButton-root {
+		background-color: $secondary-color;
+		font-size: 24px;
+
+		// font-family: $futuraMedium;
+		color: $white;
+		text-transform: uppercase;
+		white-space: nowrap;
+
+		&:hover {
+			background-color: $secondary-color;
+			font-size: 24px;
+
+			// font-family: $futuraMedium;
+			color: $white;
+			text-transform: uppercase;
+			white-space: nowrap;
+		}
+	}
+}
+
+div.MuiOutlinedInput-root.Mui-focused {
+	.MuiOutlinedInput-notchedOutline {
+		border: solid 1px $primary-color;
+	}
+}
+
+legend {
+	span {
+		font-size: 17px;
+	}
+}
+
+.termsConditions {
+	display: flex;
+	align-items: center;
+
+	// font-family: $futuraMedium;
+	color: $dark-para;
+	margin-bottom: 38px;
+}
+
+.terms-text {
+	font-size: 18px;
+}
+
+input[type="number"] {
+	&::-webkit-inner-spin-button {
+		appearance: none;
+		margin: 0;
+	}
+
+	&::-webkit-outer-spin-button {
+		appearance: none;
+		margin: 0;
+	}
+}
+@media screen and (width <= 744px) {
+	.signUpFormContents {
+		.MuiInputBase-input.MuiOutlinedInput-input {
+			padding: 16.5px 14px;
+		}
+	}
+
+	.terms-text {
+		font-size: 14px;
+	}
+}
