@@ -1,4 +1,4 @@
-import { UserState } from '@redux/slices/authslice';
+import { UserState } from '@redux/slices/authSlice';
 import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
 import { AnyAction, EmptyObject } from 'redux';
 import { Persistor } from 'redux-persist';

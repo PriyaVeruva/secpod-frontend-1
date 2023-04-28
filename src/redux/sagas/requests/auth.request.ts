@@ -1,5 +1,5 @@
-import endpoints from '@utils/apiEndpoints.utils';
-import { axiosInstance } from '@utils/axios.utils';
+import endpoints from 'utils/apiEndpoints.utils';
+import { axiosInstance } from 'utils/axios.utils';
 import { AxiosResponse } from 'axios';
 
 export async function authenticateUser(action: any): Promise<AxiosResponse<any>> {
