@@ -17,7 +17,7 @@ export const initialState: UserState = {
     successMessage: '',
     FailureMessage: '',
 };
-const userSlice = createSlice({
+const authSlice = createSlice({
     name: 'signup',
     initialState,
     reducers: {
@@ -36,5 +36,5 @@ const userSlice = createSlice({
         },
     },
 });
-export const { setUserDetails, setSuccessData, setFailureData } = userSlice.actions;
-export default userSlice.reducer;
+export const { setUserDetails, setSuccessData, setFailureData } = authSlice.actions;
+export default authSlice.reducer;
