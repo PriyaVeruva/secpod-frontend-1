@@ -1,7 +1,7 @@
 import styles from './Footer.module.scss';
 import { FooterData, LogoImages, SocialMediaLinksAndLogos } from './data';
 import { Link } from 'react-router-dom';
-import ButtonComponent from '../common/ButtonComponent/Button.component';
+import ButtonComponent from '../common/FormComponents/ButtonComponent/Button.component';
 import { useNavigate } from 'react-router-dom';
 import { text } from '../../utils/text.utils';
 function Footer(): JSX.Element {

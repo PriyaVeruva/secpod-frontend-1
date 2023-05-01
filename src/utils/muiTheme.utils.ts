@@ -1,35 +1,35 @@
-import { createTheme } from "@mui/material";
+import { createTheme } from '@mui/material';
 
 const muiTheme = createTheme({
-    typography : {
+    typography: {
         body1: {
-            fontFamily: "Futura-Bold",
-          },
-          body2: {
-            fontFamily: "Futura-Bold",
-          },
-          h1: {
+            fontFamily: 'Futura-Medium',
+        },
+        body2: {
+            fontFamily: 'Futura-Medium',
+        },
+        h1: {
             fontFamily: 'Barlow-Medium',
-          },
-          h2: {
+        },
+        h2: {
             fontFamily: 'Barlow-Medium',
-          },
-          h3: {
+        },
+        h3: {
             fontFamily: 'Barlow-Medium',
-          },
-          h4: {
+        },
+        h4: {
             fontFamily: 'Barlow-Medium',
-          },
-          h5: {
+        },
+        h5: {
             fontFamily: 'Barlow-Medium',
-          },
-          button: {
-            fontFamily: 'Futura-Bold',
+        },
+        button: {
+            fontFamily: 'Futura-Medium',
             fontWeight: 500,
             textTransform: 'uppercase',
-            fontSize: '1rem'
-          }
-    }
-})
+            fontSize: '1rem',
+        },
+    },
+});
 
 export default muiTheme;
