@@ -2,7 +2,7 @@
 @use "./styles/resets" as *;
 
 body {
-  font-family: $futura-bold;
+  font-family: $futura;
   font-weight: 500;
   color: $dark-para;
 
@@ -96,7 +96,7 @@ h3 {
 }
 
 p {
-  font-family: $futura-bold;
+  font-family: $futura;
   font-weight: 500;
   color: $dark-para;
 

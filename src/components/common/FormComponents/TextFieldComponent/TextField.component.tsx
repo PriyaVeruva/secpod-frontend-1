@@ -33,8 +33,6 @@ function TextFieldComponent({ type, name, label, field, form, endAdornment }: Te
                 InputLabelProps={{
                     style: {
                         fontSize: '24px',
-                        color: 'var(--darkPara)',
-                        fontFamily: 'Futura-Medium',
                     },
                 }}
                 InputProps={{

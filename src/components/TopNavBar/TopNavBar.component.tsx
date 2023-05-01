@@ -1,11 +1,12 @@
+import SanerNowLogo from '../common/SanerNowLogo/SanerNowLogo.component';
 import styles from './TopNavBar.module.scss';
 import { HeaderData } from './data';
 function TopNavBar(): JSX.Element {
     return (
         <div className={styles.header}>
-            <span className={styles.logo}>
-                Saner<span className={styles.textStyle1}>Now</span>
-            </span>
+            <div className={styles.logo}>
+                <SanerNowLogo size={40} />
+            </div>
             <ul className={styles.navLinks}>
                 {HeaderData.map((ele, i) => {
                     return (
