@@ -1,5 +1,7 @@
 @use "../../styles/abstracts/colors.scss" as *;
 @use "../../styles/abstracts/typography.scss" as *;
+@use "../../styles/config.scss" as *;
+
 /* stylelint-disable */
 
 .signUpFormContents {
@@ -16,6 +18,10 @@
 
 	.MuiInputBase-input.MuiOutlinedInput-input {
 		padding: 25px 431px 23px 24px;
+
+		@include mobile {
+			padding: 16.5px 14px;
+		}
 	}
 
 	.MuiButtonBase-root.MuiButton-root {
@@ -62,6 +68,10 @@ legend {
 
 .terms-text {
 	font-size: 18px;
+
+	@include mobile {
+		font-size: 14px;
+	}
 }
 
 input[type="number"] {
@@ -73,16 +83,5 @@ input[type="number"] {
 	&::-webkit-outer-spin-button {
 		appearance: none;
 		margin: 0;
-	}
-}
-@media screen and (width <= 744px) {
-	.signUpFormContents {
-		.MuiInputBase-input.MuiOutlinedInput-input {
-			padding: 16.5px 14px;
-		}
-	}
-
-	.terms-text {
-		font-size: 14px;
 	}
 }

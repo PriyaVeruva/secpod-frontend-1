@@ -1,5 +1,6 @@
 @use "../../../styles/abstracts/colors" as *;
 @use "../../../styles/abstracts/typography" as *;
+@use "../../../styles/config.scss" as *;
 
 $font-family-3: "Futura-Medium";
 
@@ -10,6 +11,11 @@ $font-family-3: "Futura-Medium";
 	width: 70% !important;
 	margin: 0 auto;
 	padding-top: 10vh;
+
+	@include mobile {
+		width: 85% !important;
+		flex-direction: column;
+	}
 }
 
 .carouselVisibility {
@@ -18,24 +24,49 @@ $font-family-3: "Futura-Medium";
 	align-items: center;
 	background-color: $background-color-1;
 	flex-direction: row-reverse;
+
+	@include mobile {
+		flex-direction: column;
+	}
 }
 
 .carouselImageSection {
 	margin: 0 80px 0 0 !important;
+
+	@include mobile {
+		width: 230px !important;
+		margin: 0 !important;
+	}
 }
 
 .carousel2ImageSection {
 	width: 50%;
+
+	@include mobile {
+		margin-top: 40px;
+	}
 }
 
 .carouselContentSection {
 	display: flex;
 	flex-direction: column;
 	text-align: start;
+
+	@include mobile {
+		text-align: center;
+		margin-top: 20px;
+	}
 }
 
 .carouselContentSection2 {
 	margin-inline: 40px;
+
+	@include mobile {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 }
 
 .carouselHeader {
@@ -43,14 +74,27 @@ $font-family-3: "Futura-Medium";
 	font-family: $barlow-bold;
 	color: $primary-color;
 	margin-bottom: 10px;
+
+	@include mobile {
+		font-size: 24px;
+	}
 }
 
 .carouselHeaderContent {
 	font-size: 40px;
-	color: $color-10;
+	color: $carousel-header-color;
 	text-align: start;
 	margin-bottom: 40px;
 	font-family: $barlow-bold;
+
+	@include mobile {
+		font-size: 24px;
+		margin-block: 20px;
+	}
+
+	@include mobile-small {
+		font-size: 18px;
+	}
 }
 
 .carouselSubHeader {
@@ -58,6 +102,10 @@ $font-family-3: "Futura-Medium";
 	font-family: $barlow-medium;
 	color: $secondary-color;
 	margin-bottom: 20px;
+
+	@include mobile {
+		font-size: 18px;
+	}
 }
 
 .carouselsubHeaderContent {
@@ -65,81 +113,24 @@ $font-family-3: "Futura-Medium";
 	color: $dark-para;
 	text-align: start;
 	font-family: $font-family-3;
+
+	@include mobile {
+		font-size: 18px;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	@include mobile-small {
+		font-size: 14px;
+	}
 }
 
 .carouselParagraphContent {
 	font-size: 18px;
 	font-family: $font-family-3;
 	color: $dark-para;
-}
-@media only screen and (width <= 768px) {
-	.carouselHeader {
-		font-size: 24px;
-	}
 
-	.carouselSubHeader {
-		font-size: 18px;
-	}
-
-	.carouselParagraphContent {
+	@include mobile {
 		font-size: 16px;
-	}
-
-	.carouselImageSection {
-		margin: 0 80px 0 0 !important;
-		width: 230px !important;
-	}
-
-	.contains {
-		width: 85% !important;
-	}
-
-	.carouselHeaderContent {
-		font-size: 24px;
-		margin-block: 20px;
-	}
-
-	.carouselsubHeaderContent {
-		font-size: 18px;
-		margin-bottom: 40px;
-		text-align: center;
-	}
-}
-@media only screen and (width <= 744px) {
-	.carouselContentSection2 {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.carouselVisibility {
-		flex-direction: column;
-	}
-
-	.carousel2ImageSection {
-		margin-top: 40px;
-	}
-
-	.contains {
-		flex-direction: column;
-	}
-
-	.carouselContentSection {
-		text-align: center;
-		margin-top: 20px;
-	}
-
-	.carouselImageSection {
-		margin: 0 !important;
-	}
-}
-@media only screen and (width <= 425px) {
-	.carouselHeaderContent {
-		font-size: 18px;
-	}
-
-	.carouselsubHeaderContent {
-		font-size: 14px;
 	}
 }

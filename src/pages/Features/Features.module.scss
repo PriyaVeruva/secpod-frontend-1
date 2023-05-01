@@ -1,0 +1,53 @@
+@use "../../styles/config.scss" as *;
+@use "../../styles/abstracts/typography.scss" as *;
+@use "../../styles/config.scss" as *;
+
+.featuresContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.featuresContentSection {
+	max-width: 80%;
+}
+
+.featuresHeader {
+	color: $primary-color;
+	margin-bottom: 40px;
+	font-size: 48px;
+	font-family: $barlow-bold;
+
+	@include mobile {
+		font-size: 30px;
+		max-width: none;
+	}
+
+}
+
+.featuresParagraph {
+	font-size: 24px;
+
+	// font-family: $futuraMedium;
+	color: $dark-para;
+	margin-bottom: 80px;
+
+	@include mobile {
+		font-size: 18px;
+	}
+
+	@include mobile-small {
+		margin-bottom: 30px;
+	}
+}
+
+.carouselSlider {
+	width: 70%;
+
+	@include desktop {
+		.carouselSlider {
+			width: 85%;
+		}
+	}
+}
