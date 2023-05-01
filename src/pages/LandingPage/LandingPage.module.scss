@@ -17,47 +17,23 @@
 }
 
 .headerContent {
-	color: $primary-color;
 	margin-bottom: 40px;
-	font-size: 72px;
-	font-family: $barlow-extra-bold;
-
-	@include desktop {
-		font-size: 64px;
-	}
 
 	@include mobile {
-		font-size: 40px;
 		max-width: none;
-	}
-
-	@include mobile-small {
-		font-size: 32px;
 	}
 }
 
 .headerContent4 {
-	font-size: 48px;
-	font-family: $barlow-bold;
 	margin-block: 80px;
-	color: $primary-color;
 
 	@include mobile {
-		font-size: 30px;
 		max-width: none;
 	}
 }
 
 .paragraphContent {
-	font-size: 24px;
-
-	// font-family: $futuraMedium;
-	color: $dark-para;
 	margin-bottom: 80px;
-
-	@include mobile {
-		font-size: 18px;
-	}
 
 	@include mobile-small {
 		margin-bottom: 30px;
@@ -87,7 +63,6 @@
 	.buttonText2 {
 		font-size: 24px;
 
-		// font-family: $futuraMedium;
 		text-decoration: none;
 		border-radius: 4px;
 		flex-shrink: 0;
@@ -111,7 +86,7 @@
 .imageSection {
 	margin-block: 80px;
 
-	@include desktop {
+	@include mobile {
 		img {
 			width: 100%;
 			max-width: 90%;
@@ -119,12 +94,15 @@
 	}
 }
 
-.headerContent2 {
-	font-size: 48px;
-	color: $primary-color;
+.logoHeading {
 	font-family: $barlow-extra-bold;
+	font-weight: 800;
 	text-transform: capitalize;
 	margin: 0 20px 80px;
+
+	@include large-screen {
+		font-size: 48px;
+	}
 
 	@include desktop {
 		font-size: 32px;
@@ -132,6 +110,10 @@
 
 	@include mobile {
 		font-size: 24px;
+	}
+
+	@include mobile-small {
+		font-size: 18px;
 	}
 }
 

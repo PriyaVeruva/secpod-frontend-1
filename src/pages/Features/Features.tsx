@@ -6,13 +6,13 @@ function Features(): JSX.Element {
 	return (
 		<div className={styles.featuresContainer} id="features">
 			<div className={styles.featuresContentSection}>
-				<div className={styles.featuresHeader}>
+				<h2 className={styles.featuresHeader}>
 					{text.landingPage.HEADER_CONTENT_2}
-				</div>
+				</h2>
 
-				<div className={styles.featuresParagraph}>
+				<p className={styles.featuresParagraph}>
 					{text.landingPage.PARAGRAPH_CONTENT_2}
-				</div>
+				</p>
 			</div>
 
 			<div className={styles.carouselSlider}>

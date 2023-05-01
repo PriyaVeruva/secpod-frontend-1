@@ -64,13 +64,7 @@ legend {
 	margin-bottom: 38px;
 }
 
-.terms-text {
-	font-size: 18px;
 
-	@include mobile {
-		font-size: 14px;
-	}
-}
 
 input[type="number"] {
 	&::-webkit-inner-spin-button {

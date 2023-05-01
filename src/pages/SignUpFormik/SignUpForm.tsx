@@ -64,9 +64,7 @@ function SignUpForm(): JSX.Element {
 								},
 							}}
 						/>
-						<p className="terms-text">
-							{text.landingPage.TERMS_CONDITIONS}
-						</p>
+						<p>{text.landingPage.TERMS_CONDITIONS}</p>
 					</div>
 					<ButtonComponent
 						variant="contained"

@@ -11,12 +11,12 @@ function Tools(): JSX.Element {
 				<span>{text.landingPage.POWERFUL_TOOLS_CONTENT}</span>
 			</marquee>
 			<div className={styles.featuresContentSection}>
-				<div className={styles.titleContent}>
+				<h2 className={styles.titleContent}>
 					{text.landingPage.SECURITY_AND_IT_HEADER_CONTENT}{" "}
-				</div>
-				<div className={styles.titleSubContent}>
+				</h2>
+				<p className={styles.titleSubContent}>
 					{text.landingPage.SECURITY_AND_IT_SUB_CONTENT}
-				</div>
+				</p>
 			</div>
 
 			<div className={styles.cardContentSection}>

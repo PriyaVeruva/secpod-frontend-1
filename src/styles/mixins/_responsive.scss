@@ -1,7 +1,6 @@
 $mobile-small: 372px;
 $mobile: 768px;
 $desktop: 1440px;
-<<<<<<< HEAD
 $large-screen: 1920px;
 
 @mixin mobile-small {
@@ -26,29 +25,4 @@ $large-screen: 1920px;
   @media screen and (min-width: $large-screen) {
     @content;
   }
-=======
-$screen-large: 1920px;
-
-@mixin mobile-small {
-	@media (max-width: $mobile-small) {
-		@content;
-	}
-}
-@mixin mobile {
-	@media (max-width: $mobile) {
-		@content;
-	}
-}
-
-@mixin desktop {
-	@media (max-width: $desktop) {
-		@content;
-	}
-}
-
-@mixin screen-large {
-	@media (max-width: $screen-large) {
-		@content;
-	}
->>>>>>> 8d5eead (fixed namingconventions and mobile responsive)
 }

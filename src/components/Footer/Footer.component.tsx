@@ -14,7 +14,7 @@ function Footer(): JSX.Element {
             <div className={styles.endorsement}>
                 <div className={styles.contents}>
                     <div className={styles.header}>{text.landingPage.ENDORSEMENTS_HEADER_TEXT}</div>
-                    <div className={styles.subHeader}>{text.landingPage.ENDORSEMENTS_SUB_HEADING}</div>
+                    <p className={styles.subHeader}>{text.landingPage.ENDORSEMENTS_SUB_HEADING}</p>
                 </div>
                 <div className={styles.imagesSection}>
                     {LogoImages.map((ele, i: any) => {

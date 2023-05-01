@@ -5,12 +5,12 @@ import { text } from "utils/text.utils";
 function Pricing(): JSX.Element {
 	return (
 		<div className={styles.pricingContainer}>
-			<div className={styles.pricingHeaderContent}>
+			<h2 className={styles.pricingHeaderContent}>
 				{text.landingPage.HEADER_CONTENT_3}
-			</div>
-			<div className={styles.paragraphContent}>
+			</h2>
+			<p className={styles.paragraphContent}>
 				{text.landingPage.PARAGRAPH_CONTENT_3}
-			</div>
+			</p>
 			<div className={styles.cardContentSection}>
 				{cardContainerData2.map((ele, i) => {
 					return (

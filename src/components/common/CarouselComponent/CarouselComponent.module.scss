@@ -1,7 +1,5 @@
 @use "../../../styles/config.scss" as *;
 
-$font-family-3: "Futura-Medium";
-
 .contains {
 	display: flex !important;
 	justify-content: center !important;
@@ -88,6 +86,7 @@ $font-family-3: "Futura-Medium";
 	@include mobile {
 		font-size: 24px;
 		margin-block: 20px;
+		text-align: center;
 	}
 
 	@include mobile-small {
@@ -107,28 +106,10 @@ $font-family-3: "Futura-Medium";
 }
 
 .carouselsubHeaderContent {
-	font-size: 32px;
-	color: $dark-para;
 	text-align: start;
-	font-family: $font-family-3;
 
 	@include mobile {
-		font-size: 18px;
 		margin-bottom: 40px;
 		text-align: center;
-	}
-
-	@include mobile-small {
-		font-size: 14px;
-	}
-}
-
-.carouselParagraphContent {
-	font-size: 18px;
-	font-family: $font-family-3;
-	color: $dark-para;
-
-	@include mobile {
-		font-size: 16px;
 	}
 }

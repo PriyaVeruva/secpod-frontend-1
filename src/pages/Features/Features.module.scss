@@ -12,28 +12,15 @@
 }
 
 .featuresHeader {
-	color: $primary-color;
 	margin-bottom: 40px;
-	font-size: 48px;
-	font-family: $barlow-bold;
 
 	@include mobile {
-		font-size: 30px;
 		max-width: none;
 	}
-
 }
 
 .featuresParagraph {
-	font-size: 24px;
-
-	// font-family: $futuraMedium;
-	color: $dark-para;
 	margin-bottom: 80px;
-
-	@include mobile {
-		font-size: 18px;
-	}
 
 	@include mobile-small {
 		margin-bottom: 30px;
