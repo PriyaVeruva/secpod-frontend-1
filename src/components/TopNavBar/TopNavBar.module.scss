@@ -1,5 +1,4 @@
-@use "../../styles/abstracts/colors" as *;
-@use "../../styles/abstracts/typography" as *;
+@use "../../styles/config.scss" as *;
 
 $font-family-1: "Futura-Medium";
 
@@ -11,11 +10,15 @@ $font-family-1: "Futura-Medium";
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 80px;
+
+	@include mobile {
+		padding: 24px;
+	}
 }
 
 .logo {
 	font-size: 30px;
-	color: $color-11;
+	color: $logo-color;
 	font-family: $font-family-1;
 	font-weight: 500;
 	gap: 60px;
@@ -23,6 +26,9 @@ $font-family-1: "Futura-Medium";
 
 	.textStyle1 {
 		font-weight: bold;
+	}
+	@include mobile {
+		font-size: 24px;
 	}
 }
 
@@ -60,25 +66,17 @@ $font-family-1: "Futura-Medium";
 		box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%),
 			0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
 	}
+	@include mobile {
+		padding: 14px 40px;
+	}
 }
 
 .mobileShow {
 	display: flex;
 }
-@media screen and (width <= 744px) {
-	.mobileHide {
+
+.mobileHide {
+	@include mobile {
 		display: none;
-	}
-
-	.header {
-		padding: 24px;
-	}
-
-	.button {
-		padding: 14px 40px;
-	}
-
-	.logo {
-		font-size: 24px;
 	}
 }
