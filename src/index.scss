@@ -6,21 +6,21 @@ body {
   font-weight: 500;
   color: $dark-para;
 
-  @include large-screen {
-    font-size: 1.125rem;
-  }
+	@include large-screen {
+		font-size: 1.125rem;
+	}
 
-  @include desktop {
-    font-size: 1rem;
-  }
+	@include desktop {
+		font-size: 1rem;
+	}
 
-  @include mobile {
-    font-size: 0.875rem;
-  }
+	@include mobile {
+		font-size: 0.875rem;
+	}
 
-  @include mobile-small {
-    font-size: 0.625rem;
-  }
+	@include mobile-small {
+		font-size: 0.625rem;
+	}
 }
 
 h1,
@@ -28,71 +28,71 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: $barlow-extra-bold;
-  color: $primary-color;
+	font-family: $barlow-extra-bold;
+	color: $primary-color;
 }
 
 h1 {
-  font-family: $barlow-extra-bold;
-  font-weight: 800;
+	font-family: $barlow-extra-bold;
+	font-weight: 800;
 
-  @include large-screen {
-    font-size: 72px;
-  }
+	@include large-screen {
+		font-size: 72px;
+	}
 
-  @include desktop {
-    font-size: 64px;
-  }
+	@include desktop {
+		font-size: 64px;
+	}
 
-  @include mobile {
-    font-size: 40px;
-  }
+	@include mobile {
+		font-size: 40px;
+	}
 
-  @include mobile-small {
-    font-size: 32px;
-  }
+	@include mobile-small {
+		font-size: 32px;
+	}
 }
 
 h2 {
-  font-family: $barlow-semi-bold;
-  font-weight: 700;
+	font-family: $barlow-bold;
+	font-weight: 700;
 
-  @include large-screen {
-    font-size: 56px;
-  }
+	@include large-screen {
+		font-size: 56px;
+	}
 
-  @include desktop {
-    font-size: 48px;
-  }
+	@include desktop {
+		font-size: 48px;
+	}
 
-  @include mobile {
-    font-size: 40px;
-  }
+	@include mobile {
+		font-size: 40px;
+	}
 
-  @include mobile-small {
-    font-size: 24px;
-  }
+	@include mobile-small {
+		font-size: 24px;
+	}
 }
 
 h3 {
-  font-family: $barlow-medium;
-  font-weight: 500;
+	font-family: $barlow-medium;
+	font-weight: 500;
 
-  @include large-screen {
-    font-size: 32px;
-  }
+	@include large-screen {
+		font-size: 32px;
+	}
 
-  @include desktop {
-    font-size: 20px;
-  }
+	@include desktop {
+		font-size: 20px;
+	}
 
-  @include mobile {
-    font-size: 16px;
-  }
+	@include mobile {
+		font-size: 16px;
+	}
 
-  @include mobile-small {
-    font-size: 14px;
-  }
+	@include mobile-small {
+		font-size: 14px;
+	}
 }
 
 p {
@@ -100,19 +100,20 @@ p {
   font-weight: 500;
   color: $dark-para;
 
-  @include large-screen {
-    font-size: 1.125rem;
-  }
+	@include large-screen {
+		font-size: 32px;
+	}
 
-  @include desktop {
-    font-size: 1rem;
-  }
+	@include desktop {
+		font-size: 24px;
+	}
 
-  @include mobile {
-    font-size: 0.875rem;
-  }
+	@include mobile {
+		font-size: 18px;
+	}
 
-  @include mobile-small {
-    font-size: 0.625rem;
-  }
+	@include mobile-small {
+		font-size: 16px;
+	}
 }
+

@@ -1,7 +1,7 @@
 import { call, put } from 'redux-saga/effects';
 import { authenticateUser } from '../requests/auth.request';
 import ResponseCode from 'enums/responseCode';
-import { setFailureData, setSuccessData } from '../../slices/authSlice';
+import { setFailureData, setSuccessData } from '../../slices/authslice';
 
 export function* handleAuthenticateUser(action: any): any {
     try {

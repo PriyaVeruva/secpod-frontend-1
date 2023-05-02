@@ -38,8 +38,8 @@ function LandingPage(): JSX.Element {
             <div className={styles.pageContainer}>
                 <div className={styles.bodyContent}>
                     <div className={styles.bodyTextContents}>
-                        <div className={styles.headerContent}>{text.landingPage.HEADER_CONTENT}</div>
-                        <div className={styles.paragraphContent}>{text.landingPage.PARAGRAPH_CONTENT}</div>
+                        <h1 className={styles.headerContent}>{text.landingPage.HEADER_CONTENT}</h1>
+                        <p className={styles.paragraphContent}>{text.landingPage.PARAGRAPH_CONTENT}</p>
                     </div>
 
                     <div className={styles.button}>
@@ -60,7 +60,7 @@ function LandingPage(): JSX.Element {
                 <div className={styles.imageSection}>
                     <img src={image1} alt="" />
                 </div>
-                <div className={styles.headerContent2}>{text.landingPage.LEADING_ORGANIZATIONS_TITLE}</div>
+                <h2 className={styles.logoHeading}>{text.landingPage.LEADING_ORGANIZATIONS_TITLE}</h2>
 
                 {/*carousel 1  */}
                 <div className={styles.gridCarousel}>
@@ -106,7 +106,7 @@ function LandingPage(): JSX.Element {
             </div>
 
             <div className={styles.signupFormContent}>
-                <div className={styles.headerContent4}>{text.landingPage.HEADER_CONTENT_4}</div>
+                <h2 className={styles.headerContent4}>{text.landingPage.HEADER_CONTENT_4}</h2>
                 <div className={styles.signUpForm} id="getStarted">
                     <SignUpForm />
                 </div>
