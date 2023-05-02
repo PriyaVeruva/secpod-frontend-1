@@ -3,22 +3,11 @@ import "./slick.scss";
 import styles from "./CarouselComponent.module.scss";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import Slider from "react-slick";
-
-type carouselType = {
-	image: string;
-	largeText?: string;
-	mediumText?: string;
-	smallText?: string;
-};
-
-type carouselMainDataType = {
-	carouselData: carouselType[];
-	singleCarousel: boolean;
-	carouselStyles: boolean;
-};
-type arrowDataType = {
-	onClick?: () => void;
-};
+import {
+	arrowDataType,
+	carouselMainDataType,
+	carouselType,
+} from "./Carousel.types";
 
 function NextArrow({ onClick }: arrowDataType): JSX.Element {
 	return (
@@ -43,7 +32,7 @@ function CarouselComponent({
 }: carouselMainDataType): JSX.Element {
 	const settings = {
 		dots: singleCarousel,
-		// autoplay: singleCarousel,
+		autoplay: singleCarousel,
 		infinite: true,
 		arrow: true,
 		speed: 500,
@@ -134,9 +123,7 @@ function CarouselComponent({
 								>
 									{ele.mediumText}
 								</p>
-								<p>
-									{ele.smallText}
-								</p>
+								<p>{ele.smallText}</p>
 							</div>
 						</div>
 					);

@@ -31,8 +31,6 @@
 	width: 70%;
 
 	@include desktop {
-		.carouselSlider {
-			width: 85%;
-		}
+		width: 85%;
 	}
 }
