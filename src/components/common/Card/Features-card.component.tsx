@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Card.scss';
 import { useNavigate } from 'react-router-dom';
-import ButtonComponent from '../FormComponents/ButtonComponent/Button.component';
+import CustomButton from '../FormComponents/CustomButtonComponent/CustomButton.component';
 interface featuresCardProps {
     heading: string;
     subHeading: Array<string>;
@@ -51,12 +51,6 @@ function FeaturesCardComponent({ heading, subHeading, featuresText, features, id
         color: isHovered ? ' var(--lightPara)' : 'var(--darkPara)',
     };
 
-    const buttonStyle = {
-        backgroundColor: isHovered ? 'var(--secondaryColor)' : 'var(--white)',
-        border: isHovered ? 'none' : 'solid 1px var(--primaryColor)',
-        color: isHovered ? 'var(--white)' : 'var(--primaryColor)',
-    };
-
     const handleClick = (e: any): void => {
         e.preventDefault();
         navigate('/signup');
@@ -102,12 +96,10 @@ function FeaturesCardComponent({ heading, subHeading, featuresText, features, id
                     })}
                 </div>
 
-                <ButtonComponent
-                    style={buttonStyle}
-                    variant="outlined"
+                <CustomButton
+                    variant={isHovered ? 'contained' : 'outlined'}
                     type="submit"
                     fullWidth={true}
-                    className="buttons"
                     buttonText={'SIGN UP'}
                     onClick={handleClick}
                 />

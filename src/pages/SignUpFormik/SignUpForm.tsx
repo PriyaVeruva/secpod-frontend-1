@@ -2,14 +2,13 @@ import { Form, Field, FormikHelpers, Formik } from 'formik';
 import { Checkbox } from '@mui/material';
 import './SignUpForm.scss';
 import { validationSchema } from './SignUpValidationSchema';
-import ButtonComponent from '../../components/common/FormComponents/ButtonComponent/Button.component';
+import CustomButton from '../../components/common/FormComponents/CustomButtonComponent/CustomButton.component';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUserDetails, UserState } from '../../redux/slices/authSlice';
 import TextFieldComponent from '../../components/common/FormComponents/TextFieldComponent/TextField.component';
 import PassWord from '../../components/common/FormComponents/PasswordComponent/Password.component';
 import { FormFieldsData } from './data';
 import { text } from 'utils/text.utils';
-// import { UserState, setUserDetails } from '../../\redux/slices/authslice';
 
 function SignUpForm(): JSX.Element {
     const dispatch = useDispatch();
@@ -57,7 +56,7 @@ function SignUpForm(): JSX.Element {
                         />
                         <p>{text.landingPage.TERMS_CONDITIONS}</p>
                     </div>
-                    <ButtonComponent
+                    <CustomButton
                         variant="contained"
                         type="submit"
                         fullWidth={true}
