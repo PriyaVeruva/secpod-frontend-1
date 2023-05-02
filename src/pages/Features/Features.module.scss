@@ -1,0 +1,36 @@
+@use "../../styles/config.scss" as *;
+
+.featuresContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.featuresContentSection {
+	max-width: 80%;
+}
+
+.featuresHeader {
+	margin-bottom: 40px;
+
+	@include mobile {
+		max-width: none;
+	}
+}
+
+.featuresParagraph {
+	margin-bottom: 80px;
+
+	@include mobile-small {
+		margin-bottom: 30px;
+	}
+}
+
+.carouselSlider {
+	width: 70%;
+
+	@include desktop {
+		width: 85%;
+	}
+}
