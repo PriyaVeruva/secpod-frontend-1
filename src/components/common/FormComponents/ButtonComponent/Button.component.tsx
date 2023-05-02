@@ -1,8 +1,8 @@
 import { Button } from '@mui/material';
 interface ButtonProps {
+    variant?: 'text' | 'outlined' | 'contained';
     buttonText: string;
     onClick: any;
-    variant?: 'text' | 'outlined' | 'contained';
     className?: string;
     fullWidth?: boolean;
     style?: any;
