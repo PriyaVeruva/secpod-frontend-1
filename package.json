@@ -51,8 +51,8 @@
         "test": "react-scripts test",
         "test:watch": "npm run test -- --watch",
         "eject": "react-scripts eject",
-        "lint": "eslint 'src/**/*.{tsx,ts}' && stylelint 'src/**/*.{scss,css}'",
-        "lint:fix": "eslint 'src/**/*.{tsx,ts}' --fix && stylelint 'src/**/*.{scss,css}' --fix",
+        "lint": "eslint \"src/**/*.{tsx,ts}\" && stylelint \"src/**/*.{scss,css}\"",
+        "lint:fix": "eslint \"src/**/*.{tsx,ts}\" --fix && stylelint \"src/**/*.{scss,css}\" --fix",
         "prepare": "husky install"
     },
     "eslintConfig": {
