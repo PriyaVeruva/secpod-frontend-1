@@ -7,7 +7,7 @@ export default function AuthContainer({ children }: PropType): JSX.Element {
         <div className={styles.topContainer}>
             <div className={styles.container}>
                 <div>
-                    <SanerNowLogo size={32} />
+                    <SanerNowLogo size={44} />
                 </div>
                 <div className={styles.container_dialog}>{children}</div>
             </div>

@@ -19,9 +19,4 @@ export const HeaderData = [
         path: '#help',
         type: 'link',
     },
-    {
-        name: 'LOG IN',
-        path: '#login',
-        type: 'button',
-    },
 ];

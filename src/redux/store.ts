@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import userReducer from './slices/authSlice';
+import userReducer from './slices/authslice';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas/rootsaga';
 

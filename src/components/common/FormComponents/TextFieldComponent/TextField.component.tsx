@@ -25,7 +25,7 @@ function TextFieldComponent({ type, name, label, field, form, endAdornment }: Te
                 }}
                 InputProps={{
                     style: {
-                        color: form.touched[name] && form.errors[name] ? 'var(--error)' : undefined,
+                        color: form.touched[name] && form.errors[name] ? '#db7f72' : undefined,
                     },
                     endAdornment: endAdornment,
                 }}

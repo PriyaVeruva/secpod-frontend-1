@@ -37,6 +37,9 @@ div.MuiOutlinedInput-root.Mui-focused {
     .MuiOutlinedInput-notchedOutline {
         border: solid 1px $primary-color;
     }
+    .MuiOutlinedInput-notchedOutline {
+        border: solid 1px $primary-color;
+    }
 }
 
 legend {
@@ -50,6 +53,17 @@ legend {
     align-items: center;
     color: $dark-para;
     margin-bottom: 38px;
+    display: flex;
+    align-items: center;
+    color: $dark-para;
+    margin-bottom: 38px;
+}
+
+input[type='number'] {
+    &::-webkit-inner-spin-button {
+        appearance: none;
+        margin: 0;
+    }
 }
 
 input[type='number'] {
@@ -58,6 +72,10 @@ input[type='number'] {
         margin: 0;
     }
 
+    &::-webkit-outer-spin-button {
+        appearance: none;
+        margin: 0;
+    }
     &::-webkit-outer-spin-button {
         appearance: none;
         margin: 0;
