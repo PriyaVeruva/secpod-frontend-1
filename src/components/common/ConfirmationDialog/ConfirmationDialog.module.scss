@@ -1,0 +1,16 @@
+@use '../../../styles/config.scss' as *;
+
+.dialogTitle {
+    text-align: center;
+}
+
+.dialogContent {
+    margin: 1rem;
+    text-align: center;
+
+    .actionBtns {
+        text-align: center;
+        width: 50%;
+        margin-top: 2rem;
+    }
+}

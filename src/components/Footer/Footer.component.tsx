@@ -1,7 +1,7 @@
 import styles from './Footer.module.scss';
 import { FooterData, LogoImages, SocialMediaLinksAndLogos } from './data';
 import { Link } from 'react-router-dom';
-import ButtonComponent from '../common/FormComponents/ButtonComponent/Button.component';
+import CustomButton from '../common/FormComponents/CustomButtonComponent/CustomButton.component';
 import { useNavigate } from 'react-router-dom';
 import { text } from '../../utils/text.utils';
 function Footer(): JSX.Element {
@@ -45,7 +45,7 @@ function Footer(): JSX.Element {
                     );
                 })}
                 <div className={styles.footerButton}>
-                    <ButtonComponent buttonText={'Support'} onClick={handleClick} className={styles.footerButtonText} />
+                    <CustomButton buttonText={'Support'} onClick={handleClick} from="footer" />
                     <div className={styles.followUs}>Follow US</div>
                     <div className={styles.socialMediaLogos}>
                         {SocialMediaLinksAndLogos.map((ele, i) => {

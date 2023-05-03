@@ -28,4 +28,8 @@ export const text = {
             'Run real-time IT asset scans and gain complete visibility and control over your organizations IT assets.',
         COPY_RIGHT_CONTENT: 'Copyright 2023-SanerNow',
     },
+    forgotPwd: {
+        DIALOG_HEADER : 'Check your email',
+        DIALOG_CONTENT : 'Please check your email for the change password link',
+    }
 };
