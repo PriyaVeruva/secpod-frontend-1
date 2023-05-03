@@ -39,7 +39,7 @@ export default function LoginPage(): JSX.Element {
                         <div className={styles.forgotPassword}>{text.loginPage.FORGOT_PASSWORD}</div>
                         <CustomButton variant="contained" type="submit" fullWidth={true} buttonText={'LOG IN'} />
 
-                        <AuthFooter footerBody={text.loginPage.AUTH_FOOTER_HEADER} linkTo="Sign up" />
+                        <AuthFooter footerBody={text.loginPage.AUTH_FOOTER_HEADER} linkTo="signup" />
                     </Form>
                 </Formik>
             </div>
