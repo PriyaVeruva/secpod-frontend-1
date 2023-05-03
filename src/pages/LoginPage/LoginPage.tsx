@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import TextFieldComponent from 'components/common/FormComponents/TextFieldComponent/TextField.component';
 import ButtonComponent from 'components/common/FormComponents/ButtonComponent/Button.component';
 import AuthFooter from 'components/common/AuthFooter/AuthFooter';
+import { text } from 'utils/text.utils';
 export default function LoginPage(): JSX.Element {
     const handleSubmit = (): void => {
         console.log('hlo');
@@ -35,7 +36,7 @@ export default function LoginPage(): JSX.Element {
                             )}
                         </Field>
                         <PassWord marginBottom={0} />
-                        <div className={styles.forgotPassword}>Forgot password?</div>
+                        <div className={styles.forgotPassword}>{text.loginPage.FORGOT_PASSWORD}</div>
                         <ButtonComponent
                             variant="contained"
                             type="submit"
@@ -44,7 +45,7 @@ export default function LoginPage(): JSX.Element {
                             onClick={''}
                         />
 
-                        <AuthFooter footerBody="Dont have SanerNow account?" linkTo="Sign up" />
+                        <AuthFooter footerBody={text.loginPage.AUTH_FOOTER_HEADER} linkTo="Sign up" />
                     </Form>
                 </Formik>
             </div>
