@@ -32,4 +32,10 @@ export const text = {
         DIALOG_HEADER : 'Check your email',
         DIALOG_CONTENT : 'Please check your email for the change password link',
     }
+
+    loginPage: {
+        AUTH_HEADER:'Create your account',
+        AUTH_FOOTER_HEADER: 'Dont have SanerNow account?',
+        FORGOT_PASSWORD: 'Forgot password?',
+    },
 };

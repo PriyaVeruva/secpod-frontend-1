@@ -3,7 +3,10 @@ import { Field } from 'formik';
 import { IconButton, InputAdornment } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import TextFieldComponent from '../TextFieldComponent/TextField.component';
-function PassWord(): JSX.Element {
+type PropType={
+    marginBottom:number;
+}
+function PassWord({marginBottom}:PropType): JSX.Element {
     interface InputFieldProps {
         field: {
             name: string;
@@ -22,7 +25,7 @@ function PassWord(): JSX.Element {
         event.preventDefault();
     };
     return (
-        <div>
+        <div style={{marginBottom:`${marginBottom}px`}}>
             <Field name="password">
                 {({ field, form: { errors, touched } }: InputFieldProps): JSX.Element => (
                     <TextFieldComponent

@@ -1,0 +1,19 @@
+@use '../../../styles/config.scss' as *;
+
+.footerContent {
+    font-family: $futura;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $primary-color;
+    margin-top: 28px;
+    cursor: pointer;
+
+    span {
+        text-decoration: underline;
+        font-weight: 500;
+    }
+}

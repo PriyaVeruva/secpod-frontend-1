@@ -1,0 +1,15 @@
+@use '../../styles/config.scss' as *;
+
+.forgotPassword {
+    font-family: $futura;
+    font-size: 18px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $primary-color;
+    cursor: pointer;
+    margin-bottom: 28px;
+    text-decoration: underline;
+}
