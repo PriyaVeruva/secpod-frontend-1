@@ -6,9 +6,9 @@ import { Formik, Form, Field } from 'formik';
 import PassWord from '../../components/common/FormComponents/PasswordComponent/Password.component';
 import { useSelector } from 'react-redux';
 import TextFieldComponent from 'components/common/FormComponents/TextFieldComponent/TextField.component';
-import ButtonComponent from 'components/common/FormComponents/ButtonComponent/Button.component';
 import AuthFooter from 'components/common/AuthFooter/AuthFooter';
 import { text } from 'utils/text.utils';
+import CustomButton from 'components/common/FormComponents/CustomButtonComponent/CustomButton.component';
 export default function LoginPage(): JSX.Element {
     const handleSubmit = (): void => {
         console.log('hlo');
@@ -37,13 +37,7 @@ export default function LoginPage(): JSX.Element {
                         </Field>
                         <PassWord marginBottom={0} />
                         <div className={styles.forgotPassword}>{text.loginPage.FORGOT_PASSWORD}</div>
-                        <ButtonComponent
-                            variant="contained"
-                            type="submit"
-                            fullWidth={true}
-                            buttonText={'LOG IN'}
-                            onClick={''}
-                        />
+                        <CustomButton variant="contained" type="submit" fullWidth={true} buttonText={'LOG IN'} />
 
                         <AuthFooter footerBody={text.loginPage.AUTH_FOOTER_HEADER} linkTo="Sign up" />
                     </Form>

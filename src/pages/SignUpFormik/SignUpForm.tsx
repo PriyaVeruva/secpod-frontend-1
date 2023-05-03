@@ -6,7 +6,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { FormFieldsData } from './data';
 import { text } from 'utils/text.utils';
 import TextFieldComponent from 'components/common/FormComponents/TextFieldComponent/TextField.component';
-import PassWord from 'components/common/FormComponents/PasswordComponent/Password.component';import CustomButton from '../../components/common/FormComponents/CustomButtonComponent/CustomButton.component';
+import PassWord from 'components/common/FormComponents/PasswordComponent/Password.component';
+import CustomButton from '../../components/common/FormComponents/CustomButtonComponent/CustomButton.component';
 import { authSagaActions } from 'redux/sagas/sagaActions/auth.actions';
 type PropType = {
     padding: number;
@@ -49,7 +50,7 @@ function SignUpForm({ padding, createAccount }: PropType): JSX.Element {
                 <Form>
                     {FormFieldsData.map((ele, i) => {
                         return (
-                            <div key={i}>
+                            <div style={{ margin: '1rem 0' }} key={i}>
                                 <Field name={ele.name}>
                                     {({ field, form: { errors, touched } }: any): any => (
                                         <TextFieldComponent
@@ -81,13 +82,7 @@ function SignUpForm({ padding, createAccount }: PropType): JSX.Element {
                             <p>{text.landingPage.TERMS_CONDITIONS}</p>
                         </div>
                     )}
-                    <CustomButton
-                        variant="contained"
-                        type="submit"
-                        fullWidth={true}
-                        buttonText={'GET STARTED NOW'}
-                        
-                    />
+                    <CustomButton variant="contained" type="submit" fullWidth={true} buttonText={'GET STARTED NOW'} />
                 </Form>
             </Formik>
         </div>
