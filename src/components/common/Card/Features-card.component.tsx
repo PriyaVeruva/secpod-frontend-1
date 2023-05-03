@@ -28,38 +28,38 @@ function FeaturesCardComponent({ heading, subHeading, featuresText, features, id
     };
 
     const headingStyle = {
-        color: isHovered ? '#ebf6ff' : 'var(--primaryColor)',
+        color: isHovered ? '#ebf6ff' : '#012f51',
         transition: 'color 0.4s ease-in-out',
     };
 
     const subheadingStyle = {
         backgroundColor: isHovered ? '#e9f8ea' : '#ebf6ff',
-        border: isHovered ? 'solid 0.5px  var(--secondaryColor)' : 'solid 0.5px var(--primaryColor)',
+        border: isHovered ? 'solid 0.5px #23bb2d' : 'solid 0.5px #012f51',
         transition: 'color 0.4s ease-in-out',
     };
 
     const subHeadingStyleSpan = {
-        color: isHovered ? 'var(--secondaryColor)' : 'var(--primaryColor)',
+        color: isHovered ? '#23bb2d' : '#012f51',
     };
 
     const featuresTextStyle = {
-        color: isHovered ? ' var(--buttonTextColor)' : 'var(--textColor)',
+        color: isHovered ? ' #ebf6ff' : '#012f52',
         transition: 'color 0.4s ease-in-out',
     };
 
     const contentsSpan = {
-        color: isHovered ? ' var(--lightPara)' : 'var(--darkPara)',
+        color: isHovered ? ' #dedede' : '#8f8f8f',
     };
 
     const buttonStyle = {
-        backgroundColor: isHovered ? 'var(--secondaryColor)' : 'var(--white)',
-        border: isHovered ? 'none' : 'solid 1px var(--primaryColor)',
-        color: isHovered ? 'var(--white)' : 'var(--primaryColor)',
+        backgroundColor: isHovered ? '#23bb2d' : '#fff',
+        border: isHovered ? 'none' : 'solid 1px #012f51',
+        color: isHovered ? '#fff' : '#012f51',
     };
 
     const handleClick = (e: any): void => {
         e.preventDefault();
-        navigate('/signup');
+        navigate('/signUp');
     };
     return (
         <div

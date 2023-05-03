@@ -108,7 +108,7 @@ function LandingPage(): JSX.Element {
             <div className={styles.signupFormContent}>
                 <h2 className={styles.headerContent4}>{text.landingPage.HEADER_CONTENT_4}</h2>
                 <div className={styles.signUpForm} id="getStarted">
-                    <SignUpForm />
+                    <SignUpForm  padding={5} createAccount={false} />
                 </div>
             </div>
             <div id="help">
