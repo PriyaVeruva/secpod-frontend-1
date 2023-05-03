@@ -1,31 +1,9 @@
 import { TextField } from '@mui/material';
-interface TextFieldInputProps {
-	type: string;
-	name: string;
-	label: string;
-	field: {
-		name: string;
-	};
-	form: {
-		touched: { [key: string]: boolean };
-		errors: { [key: string]: string };
-	};
-	endAdornment?: string | React.ReactNode;
-	InputProps?: {
-		color?: string | undefined;
-		endAdornment?: string | React.ReactNode;
-	};
-}
-function TextFieldComponent({
-	type,
-	name,
-	label,
-	field,
-	form,
-	endAdornment,
-}: TextFieldInputProps): JSX.Element {
-	const hasError =
-		form.touched[field.name] && Boolean(form.errors[field.name]);
+import { muiTextFieldStyles } from 'muiStyles/TextFieldComponent.styles';
+import { TextFieldInputProps } from 'types/components/TextField.type';
+
+function TextFieldComponent({ type, name, label, field, form, endAdornment }: TextFieldInputProps): JSX.Element {
+    const hasError = form.touched[field.name] && Boolean(form.errors[field.name]);
 
     return (
         <div>
@@ -35,12 +13,14 @@ function TextFieldComponent({
                 name={name}
                 label={label}
                 variant="outlined"
+                autoComplete="off"
                 fullWidth={true}
                 error={hasError}
+                sx={muiTextFieldStyles.default}
                 helperText={hasError ? form.errors[field.name] : undefined}
                 InputLabelProps={{
                     style: {
-                        fontSize: '24px',
+                        fontSize: '22px',
                     },
                 }}
                 InputProps={{
