@@ -8,7 +8,7 @@ interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonE
     variant?: 'text' | 'outlined' | 'contained';
     type?: 'button' | 'submit' | 'reset';
     from?: 'footer' | 'forgotpwd';
-    onClick: any;
+    onClick?: any;
     fullWidth?: boolean;
 }
 function CustomButton(props: ButtonProps): JSX.Element {
