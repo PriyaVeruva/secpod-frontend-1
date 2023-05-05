@@ -1,7 +1,6 @@
 import { Form, Field, FormikHelpers, Formik } from 'formik';
 import { Checkbox } from '@mui/material';
 import './SignUpForm.scss';
-import { validationSchema } from './SignUpValidationSchema';
 import { useSelector, useDispatch } from 'react-redux';
 import { FormFieldsData } from './data';
 import { text } from 'utils/text.utils';
@@ -9,6 +8,7 @@ import TextFieldComponent from 'components/common/FormComponents/TextFieldCompon
 import PassWord from 'components/common/FormComponents/PasswordComponent/Password.component';
 import CustomButton from '../../components/common/FormComponents/CustomButtonComponent/CustomButton.component';
 import { authSagaActions } from 'redux/sagas/sagaActions/auth.actions';
+import { validationSchema } from 'utils/FormikValidationSchema.utils';
 type PropType = {
     padding: number;
     createAccount: boolean;
