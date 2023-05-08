@@ -1,0 +1,9 @@
+@use '../../../../styles/config.scss' as *;
+
+.err {
+    color: $error;
+
+    &::first-letter {
+        text-transform: capitalize;
+    }
+}

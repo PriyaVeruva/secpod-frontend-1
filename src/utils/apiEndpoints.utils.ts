@@ -1,5 +1,7 @@
 const endpoints = {
-    signup : '/sanernow/api/users/signin',
+    signup : '/users/signin',
+    forgotPwd : '/users/forgotPassword',
+    updatePwd : '/users/updatePassword',
 };
 
 export default endpoints;

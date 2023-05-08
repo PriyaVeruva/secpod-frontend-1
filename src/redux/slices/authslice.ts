@@ -1,21 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-export interface UserState {
-    name: string;
-    phoneNumber: string;
-    email: string;
-    companyName: string;
-    password: string;
-    successMessage: string;
-    FailureMessage: string;
-}
+import { UserState } from 'types/auth.type';
+
 export const initialState: UserState = {
+    userId: '',
     name: '',
-    phoneNumber: '',
     email: '',
+    phoneNumber: '',
     companyName: '',
-    password: '',
+    userToken: '',
+    isLoggedIn: false,
+    respCode: null,
     successMessage: '',
-    FailureMessage: '',
+    failureMessage: '',
 };
 const authSlice = createSlice({
     name: 'signup',
@@ -26,15 +22,19 @@ const authSlice = createSlice({
             state.phoneNumber = action.payload.phoneNumber;
             state.email = action.payload.email;
             state.companyName = action.payload.companyName;
-            state.password = action.payload.password;
         },
         setSuccessData: (state, action: any) => {
             state.successMessage = action.payload;
         },
         setFailureData: (state, action: any) => {
-            state.FailureMessage = action.payload;
+            state.failureMessage = action.payload.message;
+            state.respCode = action.payload.code;
         },
+        clearRespMessage: (state) => {
+            state.respCode = null;
+            state.failureMessage = '';
+        }
     },
 });
-export const { setUserDetails, setSuccessData, setFailureData } = authSlice.actions;
+export const { setUserDetails, setSuccessData, setFailureData, clearRespMessage } = authSlice.actions;
 export default authSlice.reducer;

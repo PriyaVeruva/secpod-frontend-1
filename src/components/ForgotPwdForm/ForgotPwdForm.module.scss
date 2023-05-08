@@ -1,0 +1,20 @@
+@use '../../styles/config.scss' as *;
+
+.formContainer {
+    .label {
+        color: $primary-color;
+        font-size: 18px;
+        font-weight: 800;
+        display: inline-block;
+        margin-bottom: 1.2rem;
+    }
+
+    .btn {
+        margin: 4rem 0 1.5rem;
+    }
+
+    .errContainer {
+        margin-top: 5px;
+        font-size: 12px;
+    }
+}

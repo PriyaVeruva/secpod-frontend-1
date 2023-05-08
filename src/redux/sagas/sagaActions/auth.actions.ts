@@ -1,3 +1,4 @@
 export const authSagaActions = {
   AUTHENTICATE_USER: 'AUTHENTICATE_USER',
+  SEND_FORGOT_PWD: 'SEND_FORGOT_PWD',
 };
