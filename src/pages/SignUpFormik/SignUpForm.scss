@@ -1,0 +1,83 @@
+@use '../../styles/config.scss' as *;
+
+/* stylelint-disable */
+
+.signUpFormContents {
+    padding: 5vh;
+
+    .MuiFormControl-root.MuiFormControl-fullWidth {
+        margin-bottom: 22px;
+    }
+
+    .MuiOutlinedInput-notchedOutline {
+        border-radius: 8px !important;
+        border: solid 1px $dark-para;
+    }
+
+    .MuiButtonBase-root.MuiButton-root {
+        background-color: $secondary-color;
+        font-size: 24px;
+
+        color: $white;
+        text-transform: uppercase;
+        white-space: nowrap;
+
+        &:hover {
+            background-color: $secondary-color;
+            font-size: 24px;
+
+            color: $white;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+    }
+}
+
+div.MuiOutlinedInput-root.Mui-focused {
+    .MuiOutlinedInput-notchedOutline {
+        border: solid 1px $primary-color;
+    }
+    .MuiOutlinedInput-notchedOutline {
+        border: solid 1px $primary-color;
+    }
+}
+
+legend {
+    span {
+        font-size: 17px;
+    }
+}
+
+.termsConditions {
+    display: flex;
+    align-items: center;
+    color: $dark-para;
+    margin-bottom: 38px;
+    display: flex;
+    align-items: center;
+    color: $dark-para;
+    margin-bottom: 38px;
+}
+
+input[type='number'] {
+    &::-webkit-inner-spin-button {
+        appearance: none;
+        margin: 0;
+    }
+}
+
+input[type='number'] {
+    &::-webkit-inner-spin-button {
+        appearance: none;
+        margin: 0;
+    }
+
+    &::-webkit-outer-spin-button {
+        appearance: none;
+        margin: 0;
+    }
+    &::-webkit-outer-spin-button {
+        appearance: none;
+        margin: 0;
+    }
+}

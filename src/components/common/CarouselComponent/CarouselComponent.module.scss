@@ -1,0 +1,115 @@
+@use '../../../styles/config.scss' as *;
+
+.contains {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 70% !important;
+    margin: 0 auto;
+    padding-top: 10vh;
+
+    @include mobile {
+        width: 85% !important;
+        flex-direction: column;
+    }
+}
+
+.carouselVisibility {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    background-color: $background-color-1;
+    flex-direction: row-reverse;
+
+    @include mobile {
+        flex-direction: column;
+    }
+}
+
+.carouselImageSection {
+    margin: 0 80px 0 0 !important;
+
+    @include mobile {
+        width: 230px !important;
+        margin: 0 !important;
+    }
+}
+
+.carousel2ImageSection {
+    width: 50%;
+
+    @include mobile {
+        margin-top: 40px;
+    }
+}
+
+.carouselContentSection {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+
+    @include mobile {
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+.carouselContentSection2 {
+    margin-inline: 40px;
+
+    @include mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.carouselHeader {
+    font-size: 32px;
+    font-family: $barlow-bold;
+    color: $primary-color;
+    margin-bottom: 10px;
+
+    @include mobile {
+        font-size: 24px;
+    }
+}
+
+.carouselHeaderContent {
+    font-size: 40px;
+    color: $carousel-header-color;
+    text-align: start;
+    margin-bottom: 40px;
+    font-family: $barlow-bold;
+
+    @include mobile {
+        font-size: 24px;
+        margin-block: 20px;
+        text-align: center;
+    }
+
+    @include mobile-small {
+        font-size: 18px;
+    }
+}
+
+.carouselSubHeader {
+    font-size: 20px;
+    font-family: $barlow-medium;
+    color: $secondary-color;
+    margin-bottom: 20px;
+
+    @include mobile {
+        font-size: 18px;
+    }
+}
+
+.carouselsubHeaderContent {
+    text-align: start;
+
+    @include mobile {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+}

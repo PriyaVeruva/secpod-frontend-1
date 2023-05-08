@@ -1,0 +1,75 @@
+@use '../../styles/config.scss' as *;
+
+.header {
+    box-shadow: 0 2px 5px 0 rgb(44 122 198 / 20%);
+    background-color: $white;
+    padding: 24px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+
+    @include mobile {
+        padding: 24px;
+    }
+}
+
+.logo {
+    font-size: 30px;
+    color: $logo-color;
+    gap: 60px;
+    cursor: pointer;
+
+    .textStyle1 {
+        font-weight: bold;
+    }
+    @include mobile {
+        font-size: 24px;
+    }
+}
+
+.navLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    flex-shrink: 0;
+
+    li {
+        flex-shrink: 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: $primary-color;
+        margin-right: 5vh;
+        font-size: 20px;
+    }
+}
+
+.button {
+    padding: 16px 52.5px 16px 53.5px;
+    border-radius: 4px;
+    background-color: $secondary-color !important;
+    color: $button-text-color !important;
+    font-size: 18px !important;
+    margin: 0 !important;
+    text-transform: uppercase;
+
+    &:hover {
+        box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+    }
+    @include mobile {
+        padding: 14px 40px;
+    }
+}
+
+.mobileShow {
+    display: flex;
+}
+
+.mobileHide {
+    @include mobile {
+        display: none;
+    }
+}
