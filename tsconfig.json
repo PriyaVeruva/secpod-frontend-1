@@ -29,7 +29,6 @@
             "@pages/*": ["pages/*"],
             "@muiStyles": ["muiStyles/*"],
             "@redux/*": ["redux/*"],
-            "slices/*": ["redux/slices/*"],
             "@sagaActions/*": ["redux/sagas/sagaActions/*"],
             "@styles/*": ["styles/*"],
             "types/*": ["types/*"],

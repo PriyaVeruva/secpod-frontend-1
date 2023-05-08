@@ -1,4 +1,4 @@
-import { MUI_BUTTON_GREEN } from 'utils/muiConstants.utils.';
+import { MUI_BUTTON_GREEN } from 'utils/muiConstants.utils';
 
 export const muiButtonStyles = {
     greenBtn: {

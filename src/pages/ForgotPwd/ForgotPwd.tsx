@@ -5,8 +5,10 @@ import CustomButton from 'components/common/FormComponents/CustomButtonComponent
 import AuthContainer from 'components/AuthContainer/AuthContainer.component';
 import TextFieldComponent from 'components/common/FormComponents/TextFieldComponent/TextField.component';
 import ConfirmationDialog from 'components/common/ConfirmationDialog/ConfirmationDialog.component';
-import { forgotPwdValidation } from 'pages/SignUpFormik/SignUpValidationSchema';
+import AuthHeader from 'components/common/AuthHeader/AuthHeader.component';
+import AuthFooter from 'components/common/AuthFooter/AuthFooter.component';
 import { text } from 'utils/text.utils';
+import { forgotPwdValidation } from 'utils/FormikValidationSchema.utils';
 
 type FormType = {
     email: string;
@@ -35,7 +37,7 @@ export default function ForgotPwd(): JSX.Element {
                 content={text.forgotPwd.DIALOG_CONTENT}
             />
             <div className={styles.container}>
-                <h2 className={styles.container_header}>Forgot Password</h2>
+                <AuthHeader header={'Forgot Password'} />
                 <Formik initialValues={intitialValue} onSubmit={handleSubmit} validationSchema={forgotPwdValidation}>
                     <Form>
                         <label className={styles.label}>Enter the registered email account</label>
@@ -64,9 +66,7 @@ export default function ForgotPwd(): JSX.Element {
                         </div>
                     </Form>
                 </Formik>
-                <div className={styles.container_signup}>
-                    Dont have SanerNow account? <span>Sign up</span>
-                </div>
+                <AuthFooter footerBody={text.forgotPwd.NAV_SIGNIN} linkTo="signup" />
             </div>
         </AuthContainer>
     );
