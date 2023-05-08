@@ -1,10 +1,18 @@
 import { TextField } from '@mui/material';
+import { setClearStore } from 'redux/slices/authslice';
 import { muiTextFieldStyles } from 'muiStyles/TextFieldComponent.styles';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { TextFieldInputProps } from 'types/components/TextField.type';
 
 function TextFieldComponent({ type, name, label, field, form, endAdornment }: TextFieldInputProps): JSX.Element {
     const hasError = form.touched[field.name] && Boolean(form.errors[field.name]);
-
+    const dispatch = useDispatch();
+    useEffect(() => {
+        if (hasError) {
+            dispatch(setClearStore());
+        }
+    }, [hasError]);
     return (
         <div>
             <TextField

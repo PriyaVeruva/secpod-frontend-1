@@ -2,7 +2,7 @@ import { Form, Field, FormikHelpers, Formik } from 'formik';
 import { Checkbox } from '@mui/material';
 import './SignUpForm.scss';
 import { validationSchema } from './SignUpValidationSchema';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { FormFieldsData } from './data';
 import { text } from 'utils/text.utils';
 import TextFieldComponent from 'components/common/FormComponents/TextFieldComponent/TextField.component';
@@ -31,13 +31,10 @@ function SignUpForm({ padding, createAccount }: PropType): JSX.Element {
     };
 
     const dispatch = useDispatch();
-    const formData = useSelector((state: any) => state.user);
-    console.log(formData, 'formData');
 
     function handleSubmit(values: UserState, { resetForm }: FormikHelpers<UserState>): void {
-        console.log(values, 'values');
         dispatch({
-            type: authSagaActions.AUTHENTICATE_USER,
+            type: authSagaActions.SIGNUP_USER,
             payload: values,
         });
 
@@ -79,7 +76,7 @@ function SignUpForm({ padding, createAccount }: PropType): JSX.Element {
                                     },
                                 }}
                             />
-                            <p>{text.landingPage.TERMS_CONDITIONS}</p>
+                            <div>{text.landingPage.TERMS_CONDITIONS}</div>
                         </div>
                     )}
                     <CustomButton variant="contained" type="submit" fullWidth={true} buttonText={'GET STARTED NOW'} />
