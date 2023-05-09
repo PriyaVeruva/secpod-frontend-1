@@ -9,6 +9,12 @@ export async function authenticateSignUpUser(action: SignUpAction): Promise<Axio
     return resp.data;
 }
 
+export async function sendForgotPwd(action: any): Promise<AxiosResponse<any>> {
+    const data = action;
+    const resp = await axiosInstance.post(endpoints.forgotPwd, data);
+    return resp.data;
+}
+
 export async function authenticateLoginUser(action: LoginAction['payload']): Promise<AxiosResponse<any>> {
     const data = action;
     const resp = await axiosInstance.post(endpoints.login, data);

@@ -18,7 +18,22 @@ export const muiTextFieldStyles = {
             color: MUI_LABEL_FOCUSED,
         },
 
-        '& .MuiFormHelperText-root.Mui-error ': {
+        '& .MuiFormLabel-root.MuiInputLabel-root.Mui-error': {
+            color: MUI_LABEL_ERROR,
+        },
+
+        '& .Mui-error': {
+            color: MUI_LABEL_ERROR,
+        },
+
+        '& .MuiFormHelperText-root': {
+            fontFamily: 'Futura-Medium',
+            color: MUI_LABEL_ERROR,
+            marginLeft: '0',
+        },
+
+        '& .MuiFormHelperText-root.Mui-error': {
+            fontFamily: 'Futura-Medium',
             color: MUI_LABEL_ERROR,
         },
     },

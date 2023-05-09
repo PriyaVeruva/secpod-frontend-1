@@ -31,7 +31,9 @@ export const text = {
     forgotPwd: {
         DIALOG_HEADER: 'Check your email',
         DIALOG_CONTENT: 'Please check your email for the change password link',
-        NAV_SIGNIN: 'Dont have SanerNow account?'
+        LABEL: 'Enter the registered email account',
+        NAV_SIGNIN: 'Dont have SanerNow account?',
+        ERR_PWD_MISMATCH: 'The passwords don\'t match',
     },
     loginPage: {
         AUTH_HEADER: 'Create your account',

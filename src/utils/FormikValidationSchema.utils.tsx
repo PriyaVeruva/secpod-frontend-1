@@ -25,5 +25,5 @@ export const loginValidation = Yup.object({
 });
 export const changePwdValidation = Yup.object({
     newPwd: passwordSchema.required('Password is required'),
-    confirmPwd: passwordSchema.required('Password is required'),
+    confirmPwd: Yup.string().required('Password is required'),
 });

@@ -1,8 +1,9 @@
 import { call, put } from 'redux-saga/effects';
-import { authenticateSignUpUser, authenticateLoginUser } from '../requests/auth.request';
+import { authenticateSignUpUser, authenticateLoginUser, sendForgotPwd } from '../requests/auth.request';
 import ResponseCode from 'enums/responseCode';
 import { setFailureData, setSuccessData, setUserDetails } from '../../slices/authslice';
 import { SetUserDetailsAction } from 'redux/slices/auth.types';
+import { ForgotPwdAction } from 'types/auth.type';
 import { FailureResponseData, LoginSuccessResponse } from './auth.handlers.types';
 
 export function* handleSignUpUser(action: any): Generator<any, void, any> {
@@ -58,5 +59,20 @@ export function* handleLoginUser(action: SetUserDetailsAction): Generator<any, v
             message: e.response.data.message,
         };
         yield put(setFailureData(failureResponse));
+    }
+}
+
+export function* handleSendForgotPwd(action: ForgotPwdAction): any {
+    try {
+        const resp: any = yield call((): any => sendForgotPwd(action.payload));
+
+        if (resp.code === ResponseCode.Success) {
+            yield put(setSuccessData(resp));
+        } else {
+            yield put(setFailureData(resp));
+        }
+    } catch (e: any) {
+        const { data } = e.response;
+        yield put(setFailureData(data));
     }
 }

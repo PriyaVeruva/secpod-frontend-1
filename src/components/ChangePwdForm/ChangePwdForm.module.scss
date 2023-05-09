@@ -1,0 +1,14 @@
+@use '../../styles/config.scss' as *;
+
+.inputField {
+    margin: 1.5rem 0;
+}
+
+.btn {
+    margin: 3rem 0 1rem;
+}
+
+.errContainer {
+    margin-top: -19px;
+    font-size: 12px;
+}

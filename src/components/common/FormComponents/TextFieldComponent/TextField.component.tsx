@@ -1,18 +1,20 @@
 import { TextField } from '@mui/material';
-import { setClearStore } from 'redux/slices/authslice';
+import { setClearRespMessage } from 'redux/slices/authslice';
 import { muiTextFieldStyles } from 'muiStyles/TextFieldComponent.styles';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { TextFieldInputProps } from 'types/components/TextField.type';
+import { ReduxStoreType } from 'types/store.type';
+import { useEffect } from 'react';
 
 function TextFieldComponent({ type, name, label, field, form, endAdornment }: TextFieldInputProps): JSX.Element {
-    const hasError = form.touched[field.name] && Boolean(form.errors[field.name]);
+    const hasError = form.touched[field.name] && Boolean(form.errors[field.name]) ? true : false;
     const dispatch = useDispatch();
+    const { failureMessage } = useSelector((store: ReduxStoreType) => store.user);
+
     useEffect(() => {
-        if (hasError) {
-            dispatch(setClearStore());
-        }
+        hasError && failureMessage && dispatch(setClearRespMessage());
     }, [hasError]);
+
     return (
         <div>
             <TextField
@@ -25,11 +27,8 @@ function TextFieldComponent({ type, name, label, field, form, endAdornment }: Te
                 fullWidth={true}
                 error={hasError}
                 sx={muiTextFieldStyles.default}
-                helperText={hasError ? form.errors[field.name] : undefined}
+                helperText={hasError ? form.errors[field.name] : null}
                 InputProps={{
-                    // style: {
-                    //     color: form.touched[name] && form.errors[name] ? '#db7f72' : undefined,
-                    // },
                     endAdornment: endAdornment,
                 }}
             />

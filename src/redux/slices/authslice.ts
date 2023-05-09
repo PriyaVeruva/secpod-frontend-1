@@ -47,10 +47,11 @@ const authSlice = createSlice({
             state.failureMessage = action.payload.message;
             state.respCode = action.payload.code;
         },
-        setClearStore: (state) => {
+        setClearRespMessage: (state) => {
+            state.respCode = null;
             state.failureMessage = '';
         },
     },
 });
-export const { setUserDetails, setSuccessData, setFailureData, setClearStore } = authSlice.actions;
+export const { setUserDetails, setSuccessData, setFailureData, setClearRespMessage } = authSlice.actions;
 export default authSlice.reducer;
