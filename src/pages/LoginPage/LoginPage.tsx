@@ -34,12 +34,6 @@ export default function LoginPage(): JSX.Element {
         });
     };
 
-    const inlineStylingErrors = {
-        color: '#d32f2f',
-        marginInline: ' 14px',
-        lineHeight: '1.66',
-        letterSpacing: '0.03333em',
-    };
     return (
         <AuthContainer>
             <div>
@@ -62,13 +56,13 @@ export default function LoginPage(): JSX.Element {
                                 )}
                             </Field>
                             {respCode === ResponseCode.Failed && !failureMessage.toLowerCase().includes('password') && (
-                                <span style={inlineStylingErrors}>{failureMessage}</span>
+                                <span className={styles.errorMessage}>{failureMessage}</span>
                             )}
                         </div>
 
                         <PassWord marginBottom={0} />
                         {respCode === ResponseCode.Failed && failureMessage.toLowerCase().includes('password') && (
-                            <span style={inlineStylingErrors}>{failureMessage}</span>
+                            <span className={styles.errorMessage}>{failureMessage}</span>
                         )}
                         <div className={styles.forgotPassword}>
                             <Link to={ROUTES.forgotPwd}>{text.loginPage.FORGOT_PASSWORD}</Link>
