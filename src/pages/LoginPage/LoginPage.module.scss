@@ -10,6 +10,12 @@
     letter-spacing: normal;
     color: $primary-color;
     cursor: pointer;
-    margin-bottom: 28px;
+    margin-block: 20px 28px;
     text-decoration: underline;
+}
+.errorMessage {
+    color: $error;
+    margin-inline: 14px;
+    line-height: 1.66;
+    letter-spacing: 0.03333em;
 }

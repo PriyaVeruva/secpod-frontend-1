@@ -19,6 +19,10 @@ export const forgotPwdValidation = Yup.object({
     email: emailSchema.required('Email is required'),
 });
 
+export const loginValidation = Yup.object({
+    email: emailSchema.required('Email is required'),
+    password: passwordSchema.required('Password is required'),
+});
 export const changePwdValidation = Yup.object({
     newPwd: passwordSchema.required('Password is required'),
     confirmPwd: passwordSchema.required('Password is required'),
