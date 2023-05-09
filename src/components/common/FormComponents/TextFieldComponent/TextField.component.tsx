@@ -26,11 +26,6 @@ function TextFieldComponent({ type, name, label, field, form, endAdornment }: Te
                 error={hasError}
                 sx={muiTextFieldStyles.default}
                 helperText={hasError ? form.errors[field.name] : undefined}
-                InputLabelProps={{
-                    style: {
-                        fontSize: '22px',
-                    },
-                }}
                 InputProps={{
                     style: {
                         color: form.touched[name] && form.errors[name] ? '#db7f72' : undefined,

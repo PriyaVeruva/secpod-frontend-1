@@ -1,16 +1,18 @@
 import styles from './LoginPage.module.scss';
 import AuthContainer from 'components/AuthContainer/AuthContainer.component';
-import AuthHeader from 'components/common/AuthHeader/AuthHeader';
+import AuthHeader from 'components/common/AuthHeader/AuthHeader.component';
 import { Formik, Form, Field } from 'formik';
 import PassWord from '../../components/common/FormComponents/PasswordComponent/Password.component';
 import TextFieldComponent from 'components/common/FormComponents/TextFieldComponent/TextField.component';
-import AuthFooter from 'components/common/AuthFooter/AuthFooter';
+import AuthFooter from 'components/common/AuthFooter/AuthFooter.component';
 import { text } from 'utils/text.utils';
 import CustomButton from 'components/common/FormComponents/CustomButtonComponent/CustomButton.component';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSagaActions } from 'redux/sagas/sagaActions/auth.actions';
-import { loginValidation } from 'pages/SignUpFormik/SignUpValidationSchema';
 import ResponseCode from 'enums/responseCode';
+import { Link } from 'react-router-dom';
+import { ROUTES } from 'utils/routes.utils';
+import { loginValidation } from 'utils/FormikValidationSchema.utils';
 
 type PropType = {
     email: string;
@@ -68,8 +70,11 @@ export default function LoginPage(): JSX.Element {
                         {respCode === ResponseCode.Failed && failureMessage.toLowerCase().includes('password') && (
                             <span style={inlineStylingErrors}>{failureMessage}</span>
                         )}
-                        <div className={styles.forgotPassword}>{text.loginPage.FORGOT_PASSWORD}</div>
+                        <div className={styles.forgotPassword}>
+                            <Link to={ROUTES.forgotPwd}>{text.loginPage.FORGOT_PASSWORD}</Link>
+                        </div>
                         <CustomButton variant="contained" type="submit" fullWidth={true} buttonText={'LOG IN'} />
+
                         <AuthFooter footerBody={text.loginPage.AUTH_FOOTER_HEADER} linkTo="signup" />
                     </Form>
                 </Formik>

@@ -13,7 +13,7 @@ const muiTheme = createTheme({
         },
         h2: {
             fontFamily: 'Barlow, sans-serif',
-            fontSize: '24px'
+            fontSize: '24px',
         },
         h3: {
             fontFamily: 'Barlow-Medium',
