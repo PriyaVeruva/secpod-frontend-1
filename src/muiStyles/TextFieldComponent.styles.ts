@@ -11,14 +11,14 @@ export const muiTextFieldStyles = {
         },
 
         '& .MuiFormLabel-root.MuiInputLabel-root': {
-            fontSize : '20px'
+            fontSize: '20px',
         },
 
         '& .MuiFormLabel-root.MuiInputLabel-root.Mui-focused': {
             color: MUI_LABEL_FOCUSED,
         },
 
-        '& .Mui-error': {
+        '& .MuiFormHelperText-root.Mui-error ': {
             color: MUI_LABEL_ERROR,
         },
     },

@@ -27,9 +27,9 @@ function TextFieldComponent({ type, name, label, field, form, endAdornment }: Te
                 sx={muiTextFieldStyles.default}
                 helperText={hasError ? form.errors[field.name] : undefined}
                 InputProps={{
-                    style: {
-                        color: form.touched[name] && form.errors[name] ? '#db7f72' : undefined,
-                    },
+                    // style: {
+                    //     color: form.touched[name] && form.errors[name] ? '#db7f72' : undefined,
+                    // },
                     endAdornment: endAdornment,
                 }}
             />
