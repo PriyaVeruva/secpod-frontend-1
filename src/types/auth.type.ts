@@ -10,3 +10,10 @@ export interface UserState {
     successMessage: string;
     failureMessage: string;
 }
+
+export type ForgotPwdAction = {
+    type: string;
+    payload: {
+        email: string;
+    };
+};

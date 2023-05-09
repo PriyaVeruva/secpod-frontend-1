@@ -12,9 +12,7 @@ export const FormFieldsData = [
     {
         label: 'Mobile number',
         name: 'phoneNumber',
-        type: 'number',
-
-        maxLength: 10,
+        type: 'string',
     },
     {
         label: 'Company name',

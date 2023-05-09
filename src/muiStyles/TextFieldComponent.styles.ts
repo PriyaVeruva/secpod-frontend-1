@@ -29,7 +29,7 @@ export const muiTextFieldStyles = {
         '& .MuiFormHelperText-root': {
             fontFamily: 'Futura-Medium',
             color: MUI_LABEL_ERROR,
-            marginLeft : '0'
+            marginLeft: '0',
         },
 
         '& .MuiFormHelperText-root.Mui-error': {

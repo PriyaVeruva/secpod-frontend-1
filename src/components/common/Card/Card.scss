@@ -204,12 +204,11 @@
     justify-content: center;
 }
 /* stylelint-disable */
-.buttons.MuiButtonBase-root.MuiButton-root {
-    border-radius: 4px;
+.sanerNowCardContentsSection .MuiButtonBase-root.MuiButton-root {
     margin-block: 40px;
     font-size: 18px;
-    text-transform: uppercase;
-    white-space: nowrap;
-    cursor: pointer;
+    border: solid 1px $primary-color;
+    color: $primary-color;
 }
+
 /* stylelint-enable */

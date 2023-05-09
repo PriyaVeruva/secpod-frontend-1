@@ -1,9 +1,13 @@
 import { AllEffect, ForkEffect, all, fork, takeLatest } from 'redux-saga/effects';
-import { handleAuthenticateUser, handleSendForgotPwd } from '../handlers/auth.handler';
+import { handleSignUpUser, handleLoginUser, handleSendForgotPwd } from '../handlers/auth.handler';
 import { authSagaActions } from '../sagaActions/auth.actions';
 
-function* authenticateUserWatcher(): Generator<ForkEffect<never>, void, unknown> {
-    yield takeLatest(authSagaActions.AUTHENTICATE_USER, handleAuthenticateUser);
+function* signUpUserWatcher(): Generator<ForkEffect<never>, void, unknown> {
+    yield takeLatest(authSagaActions.SIGNUP_USER, handleSignUpUser);
+}
+
+function* loginUserWatcher(): Generator<ForkEffect<never>, void, unknown> {
+    yield takeLatest(authSagaActions.LOGIN_USER, handleLoginUser);
 }
 
 function* sendForgotPwdWatcher(): Generator<ForkEffect<never>, void, unknown> {
@@ -11,5 +15,5 @@ function* sendForgotPwdWatcher(): Generator<ForkEffect<never>, void, unknown> {
 }
 
 export function* authWatcher(): Generator<AllEffect<ForkEffect<void>>, void, unknown> {
-    yield all([fork(authenticateUserWatcher), fork(sendForgotPwdWatcher)]);
+    yield all([fork(signUpUserWatcher), fork(loginUserWatcher), fork(sendForgotPwdWatcher)]);
 }
