@@ -1,6 +1,6 @@
 const endpoints = {
-    signup: '/sanernow/api/users/signup',
-    login: '/sanernow/api/users/signin',
+    signup: '/users/signup',
+    login: '/users/signin',
     forgotPwd: '/users/forgotPassword',
     updatePwd: '/users/updatePassword',
 };

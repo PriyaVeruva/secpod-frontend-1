@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Form, Formik } from 'formik';
 import styles from './ForgotPwd.module.scss';
 import AuthContainer from 'components/AuthContainer/AuthContainer.component';
@@ -10,6 +10,7 @@ import { forgotPwdValidation } from 'utils/FormikValidationSchema.utils';
 import { useDispatch } from 'react-redux';
 import { authSagaActions } from 'redux/sagas/sagaActions/auth.actions';
 import ForgotPwdForm from 'components/ForgotPwdForm/ForgotPwdForm.component';
+import { setClearRespMessage } from 'redux/slices/authslice';
 
 type FormType = {
     email: string;
@@ -21,6 +22,10 @@ export default function ForgotPwd(): JSX.Element {
         email: '',
     };
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(setClearRespMessage());
+    }, []);
 
     function closeConfiramtionDialog(): void {
         setIsOpen(false);
