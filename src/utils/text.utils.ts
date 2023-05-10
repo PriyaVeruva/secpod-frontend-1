@@ -40,4 +40,7 @@ export const text = {
         AUTH_FOOTER_HEADER: 'Dont have SanerNow account?',
         FORGOT_PASSWORD: 'Forgot password?',
     },
+error:{
+    DIALOG_HEADER:'Error!!!' 
+}
 };

@@ -7,6 +7,7 @@ import ForgotPwd from '../../pages/ForgotPwd/ForgotPwd';
 import LoginPage from '../../pages/LoginPage/LoginPage';
 import SignUpPage from '../../pages/SignUpPage/SignUpPage';
 import ChangePwd from 'pages/ChangePwd/ChangePwd';
+import RedirectPage from 'pages/RedirectPage/RedirectPage';
 
 export default function AppRouter(): JSX.Element {
     return (
@@ -17,6 +18,7 @@ export default function AppRouter(): JSX.Element {
                 <Route path={ROUTES.changePwd} element={<ChangePwd />} />
                 <Route path={ROUTES.login} element={<LoginPage />} />
                 <Route path={ROUTES.signUp} element={<SignUpPage />} />
+                <Route path={ROUTES.redirect} element={<RedirectPage />} />
             </Routes>
         </>
     );

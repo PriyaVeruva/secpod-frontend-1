@@ -1,7 +1,7 @@
 import styles from './LandingPage.module.scss';
 import { ButtonContentData, carouselDataContent1, Logos } from './data';
 import image1 from '../../assets/images/image1.png';
-import SignUpForm from '../SignUpFormik/SignUpForm';
+import SignUpForm from '../SignUpFormLandingPage/SignUpForm';
 import Features from '../Features/Features';
 import Tools from '../Tools/Tools';
 import Pricing from '../Pricing/Pricing';
@@ -108,7 +108,7 @@ function LandingPage(): JSX.Element {
             <div className={styles.signupFormContent}>
                 <h2 className={styles.headerContent4}>{text.landingPage.HEADER_CONTENT_4}</h2>
                 <div className={styles.signUpForm} id="getStarted">
-                    <SignUpForm  padding={5} createAccount={false} />
+                    <SignUpForm padding={5} createAccount={false} />
                 </div>
             </div>
             <div id="help">

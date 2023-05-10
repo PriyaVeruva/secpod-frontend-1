@@ -24,6 +24,7 @@ const store = configureStore({
     reducer: persistedReducer,
     middleware: [sagaMiddleWare],
 });
+
 sagaMiddleWare.run(rootSaga);
 
 const persistor = persistStore(store);

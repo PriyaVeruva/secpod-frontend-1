@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { FailureAction, SetUserDetailsAction, SignUpState, SuccessAction } from './auth.types';
+import { FailureAction, SetUserDetailsAction, UserState, SuccessAction } from 'types/auth.type';
 
-export const initialState: SignUpState = {
+export const initialState: UserState = {
     userDetails: {
         name: '',
         phoneNumber: '',

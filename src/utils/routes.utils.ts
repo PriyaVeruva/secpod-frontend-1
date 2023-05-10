@@ -3,5 +3,6 @@ export const ROUTES = {
     login: '/login',
     forgotPwd: '/forgot-password',
     changePwd: '/change-password',
-    signUp:'/signUp',
+    signUp: '/signUp',
+    redirect: 'sanernow.com/redirect',
 };

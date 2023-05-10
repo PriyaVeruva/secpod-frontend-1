@@ -1,4 +1,4 @@
-import SignUpForm from '../SignUpFormik/SignUpForm';
+import SignUpForm from '../SignUpFormLandingPage/SignUpForm';
 import AuthContainer from 'components/AuthContainer/AuthContainer.component';
 import AuthHeader from 'components/common/AuthHeader/AuthHeader.component';
 import AuthFooter from 'components/common/AuthFooter/AuthFooter.component';
