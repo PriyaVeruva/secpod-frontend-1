@@ -11,8 +11,9 @@ import { authSagaActions } from 'redux/sagas/sagaActions/auth.actions';
 import { validationSchema } from 'utils/FormikValidationSchema.utils';
 import ResponseCode from 'enums/responseCode';
 import ConfirmationDialog from 'components/common/ConfirmationDialog/ConfirmationDialog.component';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ReduxStoreType } from 'types/store.type';
+import { setClearRespMessage } from 'redux/slices/authslice';
 type PropType = {
     padding: number;
     createAccount: boolean;
@@ -33,15 +34,20 @@ function SignUpForm({ padding, createAccount }: PropType): JSX.Element {
         companyName: '',
         password: '',
     };
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
     const dispatch = useDispatch();
     const { successMessage, failureMessage, respCode } = useSelector((state: ReduxStoreType) => state.user);
-
+    useEffect(() => {
+        dispatch(setClearRespMessage());
+    }, []);
     function handleSubmit(values: SignUpState): void {
+        dispatch(setClearRespMessage());
+
         dispatch({
             type: authSagaActions.SIGNUP_USER,
             payload: values,
         });
+        setIsOpen(true);
     }
     function closeConfiramtionDialog(): void {
         setIsOpen(false);
@@ -67,6 +73,7 @@ function SignUpForm({ padding, createAccount }: PropType): JSX.Element {
             />
         );
     }
+
     return (
         <div style={{ padding: `${padding}vh` }}>
             {respCode === ResponseCode.Success && handleSuccessDialogMessage()}

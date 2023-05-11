@@ -55,7 +55,6 @@ export function* handleLoginUser(action: LoginAction): Generator<any, void, any>
 export function* handleVerifyEmail(action: VerifyEmailAction): any {
     try {
         const resp = yield call(() => authenticateVerifyEmail(action.payload));
-        console.log(resp, 'verifyemailresponse');
         if (resp.code === ResponseCode.Success) {
             yield put(setSuccessData(resp));
         } else {

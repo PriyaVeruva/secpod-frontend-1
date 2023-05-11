@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ReduxStoreType } from 'types/store.type';
+import Loader from 'components/Loader/Loader';
 export default function RedirectPage(): JSX.Element {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -28,6 +29,7 @@ export default function RedirectPage(): JSX.Element {
     return (
         <div>
             <SanerNowLogo size={42} />
+            {respCode == ResponseCode.Success ? '' : <Loader />}
         </div>
     );
 }
