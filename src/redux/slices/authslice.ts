@@ -41,15 +41,18 @@ const authSlice = createSlice({
         setSuccessData: (state, action: SuccessAction) => {
             state.successMessage = action.payload.message;
             state.respCode = action.payload.code;
+            state.failureMessage = '';
         },
 
         setFailureData: (state, action: FailureAction) => {
             state.failureMessage = action.payload.message;
             state.respCode = action.payload.code;
+            state.successMessage = '';
         },
         setClearRespMessage: (state) => {
             state.respCode = null;
             state.failureMessage = '';
+            state.successMessage = '';
         },
     },
 });

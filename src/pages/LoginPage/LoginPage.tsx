@@ -35,6 +35,7 @@ export default function LoginPage(): JSX.Element {
     }, []);
 
     const handleSubmit = (values: PropType): void => {
+        dispatch(setClearRespMessage());
         dispatch({
             type: authSagaActions.LOGIN_USER,
             payload: values,
