@@ -7,7 +7,7 @@ export async function updatePwd(newPwd: string, authorization: string | null): P
         Authorization: authorization,
     };
     try {
-        const resp = await axiosInstance.post(endpoints.updatePwd, data, {
+        const resp = await axiosInstance.put(endpoints.updatePwd, data, {
             headers: headers,
         });
         return resp;

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Form, Formik } from 'formik';
 import styles from './ForgotPwd.module.scss';
 import AuthContainer from 'components/AuthContainer/AuthContainer.component';
@@ -7,9 +7,12 @@ import AuthHeader from 'components/common/AuthHeader/AuthHeader.component';
 import AuthFooter from 'components/common/AuthFooter/AuthFooter.component';
 import { text } from 'utils/text.utils';
 import { forgotPwdValidation } from 'utils/FormikValidationSchema.utils';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { authSagaActions } from 'redux/sagas/sagaActions/auth.actions';
 import ForgotPwdForm from 'components/ForgotPwdForm/ForgotPwdForm.component';
+import { setClearRespMessage } from 'redux/slices/authslice';
+import { ReduxStoreType } from 'types/store.type';
+import ResponseCode from 'enums/responseCode';
 
 type FormType = {
     email: string;
@@ -21,12 +24,22 @@ export default function ForgotPwd(): JSX.Element {
         email: '',
     };
     const dispatch = useDispatch();
+    const { respCode } = useSelector((store: ReduxStoreType) => store.user);
+
+    useEffect(() => {
+        dispatch(setClearRespMessage());
+    }, []);
+
+    useEffect(() => {
+        respCode === ResponseCode.Success && setIsOpen(true);
+    }, [respCode]);
 
     function closeConfiramtionDialog(): void {
         setIsOpen(false);
     }
 
     function handleSubmit(values: FormType): void {
+        dispatch(setClearRespMessage());
         dispatch({
             type: authSagaActions.SEND_FORGOT_PWD,
             payload: values,

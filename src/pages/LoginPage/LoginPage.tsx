@@ -13,6 +13,8 @@ import ResponseCode from 'enums/responseCode';
 import { Link } from 'react-router-dom';
 import { ROUTES } from 'utils/routes.utils';
 import { loginValidation } from 'utils/FormikValidationSchema.utils';
+import { useEffect } from 'react';
+import { setClearRespMessage } from 'redux/slices/authslice';
 import ErrorComponent from 'components/common/FormComponents/ErrorComponent/Error.Component';
 
 type PropType = {
@@ -28,7 +30,13 @@ export default function LoginPage(): JSX.Element {
 
     const dispatch = useDispatch();
     const { failureMessage, respCode } = useSelector((state: any) => state.user);
+
+    useEffect(() => {
+        dispatch(setClearRespMessage());
+    }, []);
+
     const handleSubmit = (values: PropType): void => {
+        dispatch(setClearRespMessage());
         dispatch({
             type: authSagaActions.LOGIN_USER,
             payload: values,
