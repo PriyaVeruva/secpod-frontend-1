@@ -53,7 +53,7 @@ function FeaturesCardComponent({ heading, subHeading, featuresText, features, id
 
     const handleClick = (e: any): void => {
         e.preventDefault();
-        navigate('/signUp');
+        navigate('/signup');
     };
     return (
         <div

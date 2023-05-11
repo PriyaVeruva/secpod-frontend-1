@@ -15,6 +15,7 @@ import { ROUTES } from 'utils/routes.utils';
 import { loginValidation } from 'utils/FormikValidationSchema.utils';
 import { useEffect } from 'react';
 import { setClearRespMessage } from 'redux/slices/authslice';
+import ErrorComponent from 'components/common/FormComponents/ErrorComponent/Error.Component';
 
 type PropType = {
     email: string;
@@ -50,7 +51,7 @@ export default function LoginPage(): JSX.Element {
                     <Form>
                         <div style={{ margin: '1rem 0' }}>
                             <Field name={'email'}>
-                                {({ field, form: { errors, touched } }: any): any => (
+                                {({ field, form: { errors, touched } }: any): JSX.Element => (
                                     <TextFieldComponent
                                         type={'email'}
                                         name={'email'}
@@ -63,15 +64,21 @@ export default function LoginPage(): JSX.Element {
                                     />
                                 )}
                             </Field>
-                            {respCode === ResponseCode.Failed && !failureMessage.toLowerCase().includes('password') && (
-                                <span className={styles.errorMessage}>{failureMessage}</span>
-                            )}
+                            <div className={styles.errorMessage}>
+                                {respCode === ResponseCode.Failed &&
+                                    !failureMessage.toLowerCase().includes('password') && (
+                                        <ErrorComponent>{failureMessage} </ErrorComponent>
+                                    )}
+                            </div>
                         </div>
 
                         <PassWord marginBottom={0} />
-                        {respCode === ResponseCode.Failed && failureMessage.toLowerCase().includes('password') && (
-                            <span className={styles.errorMessage}>{failureMessage}</span>
-                        )}
+                        <div className={styles.errorMessage}>
+                            {respCode === ResponseCode.Failed && failureMessage.toLowerCase().includes('password') && (
+                                <ErrorComponent>{failureMessage} </ErrorComponent>
+                            )}
+                        </div>
+
                         <div className={styles.forgotPassword}>
                             <Link to={ROUTES.forgotPwd}>{text.loginPage.FORGOT_PASSWORD}</Link>
                         </div>
