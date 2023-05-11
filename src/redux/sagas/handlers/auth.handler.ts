@@ -1,32 +1,29 @@
 import { call, put } from 'redux-saga/effects';
-import { authenticateSignUpUser, authenticateLoginUser, sendForgotPwd } from '../requests/auth.request';
+import {
+    authenticateSignUpUser,
+    authenticateLoginUser,
+    sendForgotPwd,
+    authenticateVerifyEmail,
+} from '../requests/auth.request';
 import ResponseCode from 'enums/responseCode';
 import { setFailureData, setSuccessData, setUserDetails } from '../../slices/authslice';
-import { SetUserDetailsAction } from 'redux/slices/auth.types';
-import { ForgotPwdAction } from 'types/auth.type';
-import { FailureResponseData, LoginSuccessResponse } from './auth.handlers.types';
+import { ForgotPwdAction, LoginAction, LoginSuccessResponse, SignUpAction, VerifyEmailAction } from 'types/auth.type';
 
-export function* handleSignUpUser(action: any): Generator<any, void, any> {
+export function* handleSignUpUser(action: SignUpAction): Generator<any, void, any> {
     try {
         const resp = yield call(() => authenticateSignUpUser(action.payload));
         if (resp.code === ResponseCode.Success) {
             yield put(setSuccessData(resp));
         } else {
-            const failureData: FailureResponseData = {
-                code: resp.code,
-                message: resp.message,
-            };
-            yield put(setFailureData(failureData));
+            yield put(setFailureData(resp));
         }
     } catch (e: any) {
-        const failureResponse: FailureResponseData = {
-            code: e.response.data.code,
-            message: e.response.data.message,
-        };
-        yield put(setFailureData(failureResponse));
+        const { data } = e.response;
+        yield put(setFailureData(data));
     }
 }
-export function* handleLoginUser(action: SetUserDetailsAction): Generator<any, void, any> {
+
+export function* handleLoginUser(action: LoginAction): Generator<any, void, any> {
     try {
         const resp = yield call(() => authenticateLoginUser(action.payload));
 
@@ -47,18 +44,25 @@ export function* handleLoginUser(action: SetUserDetailsAction): Generator<any, v
             };
             yield put(setUserDetails(responseData));
         } else {
-            const failureData: FailureResponseData = {
-                code: resp.code,
-                message: resp.message,
-            };
-            yield put(setFailureData(failureData));
+            yield put(setFailureData(resp));
         }
     } catch (e: any) {
-        const failureResponse: FailureResponseData = {
-            code: e.response.data.code,
-            message: e.response.data.message,
-        };
-        yield put(setFailureData(failureResponse));
+        const { data } = e.response;
+        yield put(setFailureData(data));
+    }
+}
+
+export function* handleVerifyEmail(action: VerifyEmailAction): any {
+    try {
+        const resp = yield call(() => authenticateVerifyEmail(action.payload));
+        if (resp.code === ResponseCode.Success) {
+            yield put(setSuccessData(resp));
+        } else {
+            yield put(setFailureData(resp));
+        }
+    } catch (e: any) {
+        const { data } = e.response;
+        yield put(setFailureData(data));
     }
 }
 

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { FailureAction, SetUserDetailsAction, SignUpState, SuccessAction } from './auth.types';
+import { FailureAction, SetUserDetailsAction, UserState, SuccessAction } from 'types/auth.type';
 
-export const initialState: SignUpState = {
+export const initialState: UserState = {
     userDetails: {
         name: '',
         phoneNumber: '',
@@ -41,15 +41,18 @@ const authSlice = createSlice({
         setSuccessData: (state, action: SuccessAction) => {
             state.successMessage = action.payload.message;
             state.respCode = action.payload.code;
+            state.failureMessage = '';
         },
 
         setFailureData: (state, action: FailureAction) => {
             state.failureMessage = action.payload.message;
             state.respCode = action.payload.code;
+            state.successMessage = '';
         },
         setClearRespMessage: (state) => {
             state.respCode = null;
             state.failureMessage = '';
+            state.successMessage = '';
         },
     },
 });
