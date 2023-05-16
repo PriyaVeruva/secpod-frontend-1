@@ -115,7 +115,12 @@ function SignUpForm({ padding, createAccount }: PropType): JSX.Element {
                             <div>{text.landingPage.TERMS_CONDITIONS}</div>
                         </div>
                     )}
-                    <CustomButton variant="contained" type="submit" fullWidth={true} buttonText={'GET STARTED NOW'} />
+                    <CustomButton
+                        variant="contained"
+                        type="submit"
+                        fullWidth={true}
+                        buttonText={createAccount ? 'SIGN UP' : 'GET STARTED NOW'}
+                    />
                 </Form>
             </Formik>
         </div>
