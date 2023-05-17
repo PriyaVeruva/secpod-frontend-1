@@ -1,0 +1,20 @@
+@use '../../styles/config.scss' as *;
+
+.topContainer {
+    background: linear-gradient(122deg, $bg-gradient-top, $bg-gradient-bottom);
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: url('../../assets/images/onboarding-bg-image.svg') no-repeat center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: -1;
+}
