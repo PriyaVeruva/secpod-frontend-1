@@ -1,11 +1,12 @@
 import { authSagaActions } from 'redux/sagas/sagaActions/auth.actions';
-import SanerNowLogo from 'components/common/SanerNowLogo/SanerNowLogo.component';
 import ResponseCode from 'enums/responseCode';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ReduxStoreType } from 'types/store.type';
-import Loader from 'components/Loader/Loader';
+import { text } from 'utils/text.utils';
+import styles from './RedirectPage.module.scss';
+import CustomButton from 'components/common/FormComponents/CustomButtonComponent/CustomButton.component';
 export default function RedirectPage(): JSX.Element {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -19,17 +20,32 @@ export default function RedirectPage(): JSX.Element {
             type: authSagaActions.VERIFY_EMAIL,
             payload: emailQuery,
         });
-        if (respCode === ResponseCode.Success) {
+    }, []);
+
+    const handleVerifyEmail = (): void => {
+        if (respCode !== ResponseCode.Success) {
             navigate('/login');
         } else {
             console.log('error');
         }
-    }, []);
-
+    };
     return (
-        <div>
-            <SanerNowLogo size={42} />
-            {respCode == ResponseCode.Success ? '' : <Loader />}
+        <div className={styles.topContainer}>
+            <div className={styles.container}>
+                {respCode !== ResponseCode.Success && (
+                    <div className={styles.container_dialog}>
+                        <div className={styles.container_titleContent}>{text.verifyEmailPage.AUTH_HEADER}</div>
+                        <div className={styles.container_subContent}>{text.verifyEmailPage.SUCCESS_MESSAGE}</div>
+                        <CustomButton
+                            buttonText={'LOGIN'}
+                            variant="contained"
+                            type="button"
+                            from={'smallButton'}
+                            onClick={handleVerifyEmail}
+                        />
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

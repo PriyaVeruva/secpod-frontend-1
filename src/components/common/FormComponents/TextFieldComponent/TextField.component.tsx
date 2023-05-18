@@ -6,7 +6,15 @@ import { TextFieldInputProps } from 'types/components/TextField.type';
 import { ReduxStoreType } from 'types/store.type';
 import { useEffect } from 'react';
 
-function TextFieldComponent({ type, name, label, field, form, endAdornment }: TextFieldInputProps): JSX.Element {
+function TextFieldComponent({
+    type,
+    name,
+    label,
+    field,
+    form,
+    endAdornment,
+    startAdornment,
+}: TextFieldInputProps): JSX.Element {
     const hasError = form.touched[field.name] && Boolean(form.errors[field.name]) ? true : false;
     const dispatch = useDispatch();
     const { failureMessage } = useSelector((store: ReduxStoreType) => store.user);
@@ -30,6 +38,7 @@ function TextFieldComponent({ type, name, label, field, form, endAdornment }: Te
                 helperText={hasError ? form.errors[field.name] : null}
                 InputProps={{
                     endAdornment: endAdornment,
+                    startAdornment: startAdornment,
                 }}
             />
         </div>

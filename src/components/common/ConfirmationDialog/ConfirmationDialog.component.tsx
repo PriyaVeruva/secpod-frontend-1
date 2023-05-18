@@ -6,7 +6,13 @@ import CustomButton from '../FormComponents/CustomButtonComponent/CustomButton.c
 import muiConfirmationDialogStyles from 'muiStyles/confirmationDialog.styles';
 import { ConfirmationDialogProps } from 'types/components/ConfirmationDialog.type';
 
-export default function ConfirmationDialog({ isOpen, title, content, onClose }: ConfirmationDialogProps): JSX.Element {
+export default function ConfirmationDialog({
+    isOpen,
+    title,
+    content,
+    onClose,
+    buttonText,
+}: ConfirmationDialogProps): JSX.Element {
     // const handldeClickYes = (): void => {
     //     onSuccess();
     //     onClose();
@@ -18,11 +24,11 @@ export default function ConfirmationDialog({ isOpen, title, content, onClose }: 
                 {content}
                 <div className={styles.actionBtns}>
                     <CustomButton
-                        fullWidth={true}
-                        buttonText="Done"
+                        buttonText={buttonText ? 'LOGIN' : 'Done'}
                         variant="contained"
                         type="button"
                         onClick={onClose}
+                        from={'smallButton'}
                     />
                 </div>
             </DialogContent>

@@ -7,7 +7,7 @@ interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonE
     buttonText: string;
     variant?: 'text' | 'outlined' | 'contained';
     type?: 'button' | 'submit' | 'reset';
-    from?: 'footer' | 'forgotpwd';
+    from?: 'footer' | 'forgotpwd' | 'smallButton';
     onClick?: any;
     fullWidth?: boolean;
 }

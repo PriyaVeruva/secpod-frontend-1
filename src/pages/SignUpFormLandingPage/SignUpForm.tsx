@@ -14,6 +14,7 @@ import ConfirmationDialog from 'components/common/ConfirmationDialog/Confirmatio
 import { useEffect, useState } from 'react';
 import { ReduxStoreType } from 'types/store.type';
 import { setClearRespMessage } from 'redux/slices/authslice';
+import ErrorComponent from 'components/common/FormComponents/ErrorComponent/Error.Component';
 type PropType = {
     padding: number;
     createAccount: boolean;
@@ -24,6 +25,7 @@ type SignUpState = {
     email: string;
     companyName: string;
     password: string;
+    countryCode: string;
 };
 
 function SignUpForm({ padding, createAccount }: PropType): JSX.Element {
@@ -33,8 +35,10 @@ function SignUpForm({ padding, createAccount }: PropType): JSX.Element {
         email: '',
         companyName: '',
         password: '',
+        countryCode: '',
     };
     const [isOpen, setIsOpen] = useState(false);
+
     const dispatch = useDispatch();
     const { successMessage, failureMessage, respCode } = useSelector((state: ReduxStoreType) => state.user);
     useEffect(() => {
@@ -63,21 +67,10 @@ function SignUpForm({ padding, createAccount }: PropType): JSX.Element {
             />
         );
     }
-    function handleErrorDialogMessage(): JSX.Element {
-        return (
-            <ConfirmationDialog
-                title={text.error.DIALOG_HEADER}
-                content={failureMessage}
-                isOpen={isOpen}
-                onClose={closeConfiramtionDialog}
-            />
-        );
-    }
 
     return (
         <div style={{ padding: `${padding}vh` }}>
             {respCode === ResponseCode.Success && handleSuccessDialogMessage()}
-            {respCode === ResponseCode.Failed && handleErrorDialogMessage()}
 
             <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
                 <Form>
@@ -98,9 +91,18 @@ function SignUpForm({ padding, createAccount }: PropType): JSX.Element {
                                         />
                                     )}
                                 </Field>
+                                {ele.name === 'email' && (
+                                    <div className="errContainer">
+                                        {respCode === ResponseCode.Failed &&
+                                            failureMessage.toLowerCase().includes('email') && (
+                                                <ErrorComponent>{failureMessage} </ErrorComponent>
+                                            )}
+                                    </div>
+                                )}
                             </div>
                         );
                     })}
+
                     <PassWord marginBottom={createAccount ? 72 : 0} />
                     {!createAccount && (
                         <div className="termsConditions">
@@ -115,7 +117,12 @@ function SignUpForm({ padding, createAccount }: PropType): JSX.Element {
                             <div>{text.landingPage.TERMS_CONDITIONS}</div>
                         </div>
                     )}
-                    <CustomButton variant="contained" type="submit" fullWidth={true} buttonText={'GET STARTED NOW'} />
+                    <CustomButton
+                        variant="contained"
+                        type="submit"
+                        fullWidth={true}
+                        buttonText={createAccount ? 'SIGN UP' : 'GET STARTED NOW'}
+                    />
                 </Form>
             </Formik>
         </div>

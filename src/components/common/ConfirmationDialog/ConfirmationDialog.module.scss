@@ -7,10 +7,10 @@
 .dialogContent {
     margin: 1rem;
     text-align: center;
+    overflow-y: unset !important;
 
     .actionBtns {
         text-align: center;
-        width: 50%;
         margin-top: 2rem;
     }
 }
