@@ -10,8 +10,10 @@ export interface TextFieldInputProps {
         errors: { [key: string]: string };
     };
     endAdornment?: string | React.ReactNode;
+    startAdornment?: string | React.ReactNode;
     InputProps?: {
         color?: string | undefined;
         endAdornment?: string | React.ReactNode;
+        startAdornment?: string | React.ReactNode;
     };
 }

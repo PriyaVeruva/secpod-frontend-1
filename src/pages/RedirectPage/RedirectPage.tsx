@@ -1,15 +1,13 @@
 import { authSagaActions } from 'redux/sagas/sagaActions/auth.actions';
 import ResponseCode from 'enums/responseCode';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ReduxStoreType } from 'types/store.type';
 import { text } from 'utils/text.utils';
-import ConfirmationDialog from 'components/common/ConfirmationDialog/ConfirmationDialog.component';
 import styles from './RedirectPage.module.scss';
+import CustomButton from 'components/common/FormComponents/CustomButtonComponent/CustomButton.component';
 export default function RedirectPage(): JSX.Element {
-    const [isOpen, setIsOpen] = useState(true);
-
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
@@ -24,29 +22,30 @@ export default function RedirectPage(): JSX.Element {
         });
     }, []);
 
-    function closeConfiramtionDialog(): void {
-        if (respCode === ResponseCode.Success) {
-            setIsOpen(false);
+    const handleVerifyEmail = (): void => {
+        if (respCode !== ResponseCode.Success) {
             navigate('/login');
         } else {
             console.log('error');
         }
-    }
-
-    function handleSuccessDialogMessage(): JSX.Element {
-        return (
-            <ConfirmationDialog
-                title={text.verifyEmailPage.AUTH_HEADER}
-                content={text.verifyEmailPage.SUCCESS_MESSAGE}
-                isOpen={isOpen}
-                onClose={closeConfiramtionDialog}
-                buttonText={true}
-            />
-        );
-    }
+    };
     return (
         <div className={styles.topContainer}>
-            <div className={styles.container}>{respCode === ResponseCode.Success && handleSuccessDialogMessage()}</div>
+            <div className={styles.container}>
+                {respCode !== ResponseCode.Success && (
+                    <div className={styles.container_dialog}>
+                        <div className={styles.container_titleContent}>{text.verifyEmailPage.AUTH_HEADER}</div>
+                        <div className={styles.container_subContent}>{text.verifyEmailPage.SUCCESS_MESSAGE}</div>
+                        <CustomButton
+                            buttonText={'LOGIN'}
+                            variant="contained"
+                            type="button"
+                            from={'smallButton'}
+                            onClick={handleVerifyEmail}
+                        />
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

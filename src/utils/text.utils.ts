@@ -35,13 +35,16 @@ export const text = {
         NAV_SIGNIN: 'Dont have SanerNow account?',
         ERR_PWD_MISMATCH: 'The passwords dont match',
     },
+    signUpPage: {
+        AUTH_FOOTER_HEADER: 'Have a SanerNow account?',
+    },
     loginPage: {
         AUTH_HEADER: 'Create your account',
         AUTH_FOOTER_HEADER: 'Dont have SanerNow account?',
         FORGOT_PASSWORD: 'Forgot password?',
     },
     verifyEmailPage: {
-        AUTH_HEADER: 'Successfully Verified',
+        AUTH_HEADER: 'Successfully verified',
         SUCCESS_MESSAGE: 'You have verified the account please login to the platform to get started',
     },
     changePassword: {

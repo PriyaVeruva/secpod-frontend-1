@@ -7,7 +7,7 @@ import { validatePassword } from 'utils/validatePwd.utils';
 import { useState, useEffect } from 'react';
 import ChangePwdForm from 'components/ChangePwdForm/ChangePwdForm.component';
 import { updatePwd } from 'api/changePwd.api';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import ResponseCode from 'enums/responseCode';
 import { useDispatch, useSelector } from 'react-redux';
 import { setClearRespMessage, setFailureData, setSuccessData } from 'redux/slices/authslice';
@@ -24,6 +24,7 @@ export default function ChangePwd(): JSX.Element {
     const [err, setErr] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const myQueryParam = searchParams.get('authorization');
@@ -35,8 +36,6 @@ export default function ChangePwd(): JSX.Element {
 
     function handleSubmit(values: ChangePwdType): void {
         dispatch(setClearRespMessage());
-        setIsOpen(true);
-
         setErr(false);
 
         const isPwdValid = validatePassword(values.newPwd, values.confirmPwd);
@@ -48,6 +47,7 @@ export default function ChangePwd(): JSX.Element {
                 try {
                     const resp = await updatePwd(values.newPwd, myQueryParam);
                     if (resp.data.code === ResponseCode.Success) {
+                        setIsOpen(true);
                         dispatch(setSuccessData(resp.data));
                     } else {
                         dispatch(setFailureData(resp.data));
@@ -59,6 +59,7 @@ export default function ChangePwd(): JSX.Element {
         }
     }
     function closeConfiramtionDialog(): void {
+        navigate('/login');
         setIsOpen(false);
     }
     function handleSuccessDialogMessage(): JSX.Element {

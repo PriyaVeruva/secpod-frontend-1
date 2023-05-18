@@ -23,6 +23,10 @@
     font-family: Barlow-Medium;
     src: url('../../assets/fonts/Barlow/Barlow-Medium.ttf');
 }
+@font-face {
+    font-family: Futura-Book;
+    src: url('../../assets/fonts/Futura/Futura\ Book\ Regular.ttf');
+}
 
 $barlow: 'Barlow', sans-serif;
 $barlow-bold: 'Barlow-Bold', sans-serif;
@@ -30,3 +34,4 @@ $barlow-semi-bold: 'Barlow-SemiBold';
 $barlow-extra-bold: 'Barlow-ExtraBold';
 $barlow-medium: 'Barlow-Medium';
 $futura: 'Futura-Medium';
+$futura-book: 'Futura-Book';

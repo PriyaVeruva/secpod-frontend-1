@@ -24,11 +24,11 @@ export default function ConfirmationDialog({
                 {content}
                 <div className={styles.actionBtns}>
                     <CustomButton
-                        fullWidth={true}
                         buttonText={buttonText ? 'LOGIN' : 'Done'}
                         variant="contained"
                         type="button"
                         onClick={onClose}
+                        from={'smallButton'}
                     />
                 </div>
             </DialogContent>

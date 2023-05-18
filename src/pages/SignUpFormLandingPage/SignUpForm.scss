@@ -34,7 +34,16 @@ legend {
     margin-block: 22px 38px;
     font-size: 18px;
 }
-
+.errContainer {
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: start;
+}
+.error {
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: start;
+}
 input[type='number'] {
     &::-webkit-inner-spin-button {
         appearance: none;

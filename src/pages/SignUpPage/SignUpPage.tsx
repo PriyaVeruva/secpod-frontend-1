@@ -11,7 +11,7 @@ export default function SignUpPage(): JSX.Element {
                 <div>
                     <AuthHeader header={text.loginPage.AUTH_HEADER} />
                     <SignUpForm padding={0} createAccount={true} />
-                    <AuthFooter footerBody={text.loginPage.AUTH_FOOTER_HEADER} linkTo="signin" />
+                    <AuthFooter footerBody={text.signUpPage.AUTH_FOOTER_HEADER} linkTo="signin" />
                 </div>
             </AuthContainer>
         </div>
