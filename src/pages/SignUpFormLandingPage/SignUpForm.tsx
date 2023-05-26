@@ -25,7 +25,6 @@ type SignUpState = {
     email: string;
     companyName: string;
     password: string;
-    countryCode: string;
 };
 
 function SignUpForm({ padding, createAccount }: PropType): JSX.Element {
@@ -35,7 +34,6 @@ function SignUpForm({ padding, createAccount }: PropType): JSX.Element {
         email: '',
         companyName: '',
         password: '',
-        countryCode: '',
     };
     const [isOpen, setIsOpen] = useState(false);
 

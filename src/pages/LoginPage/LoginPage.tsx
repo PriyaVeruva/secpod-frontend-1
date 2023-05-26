@@ -10,7 +10,7 @@ import CustomButton from 'components/common/FormComponents/CustomButtonComponent
 import { useDispatch, useSelector } from 'react-redux';
 import { authSagaActions } from 'redux/sagas/sagaActions/auth.actions';
 import ResponseCode from 'enums/responseCode';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ROUTES } from 'utils/routes.utils';
 import { loginValidation } from 'utils/FormikValidationSchema.utils';
 import { useEffect } from 'react';
@@ -29,6 +29,7 @@ export default function LoginPage(): JSX.Element {
     };
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { failureMessage, respCode } = useSelector((state: any) => state.user);
 
     useEffect(() => {
@@ -41,6 +42,9 @@ export default function LoginPage(): JSX.Element {
             type: authSagaActions.LOGIN_USER,
             payload: values,
         });
+        if (respCode !== ResponseCode.Success) {
+            navigate('/product-selection');
+        }
     };
 
     return (

@@ -54,4 +54,12 @@ export const text = {
     error: {
         DIALOG_HEADER: 'Error!!!',
     },
+    productSelection: {
+        HEADER_CONTENT: 'Select  the product',
+    },
+    planSelection: {
+        HEADER_CONTENT: 'SanerNow plan your way',
+        PARAGRAPH_CONTENT: 'Trusted by millions,Saner now secure teams all around the world',
+        DEVICES_PARAGRAPH_CONTENT: 'Enter the number of devices',
+    },
 };

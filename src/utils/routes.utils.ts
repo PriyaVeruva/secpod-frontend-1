@@ -5,4 +5,6 @@ export const ROUTES = {
     changePwd: '/change-password',
     signUp: '/signup',
     redirect: '/redirect',
+    productSelection: '/product-selection',
+    planSelection: '/plan-selection/:step',
 };

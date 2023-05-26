@@ -29,12 +29,13 @@ function FeaturesCardComponent({ heading, subHeading, featuresText, features, id
 
     const headingStyle = {
         color: isHovered ? '#ebf6ff' : '#012f51',
+        fontSize: '24px',
         transition: 'color 0.4s ease-in-out',
     };
 
     const subheadingStyle = {
-        backgroundColor: isHovered ? '#e9f8ea' : '#ebf6ff',
-        border: isHovered ? 'solid 0.5px #23bb2d' : 'solid 0.5px #012f51',
+        backgroundColor: isHovered ? '#e9f8ea' : '',
+        border: isHovered ? 'solid 0.5px #23bb2d' : '',
         transition: 'color 0.4s ease-in-out',
     };
 
@@ -43,7 +44,7 @@ function FeaturesCardComponent({ heading, subHeading, featuresText, features, id
     };
 
     const featuresTextStyle = {
-        color: isHovered ? ' #ebf6ff' : '#012f52',
+        color: isHovered ? ' #ebf6ff' : '',
         transition: 'color 0.4s ease-in-out',
     };
 
@@ -102,6 +103,7 @@ function FeaturesCardComponent({ heading, subHeading, featuresText, features, id
                     fullWidth={true}
                     buttonText={'SIGN UP'}
                     onClick={handleClick}
+                    from={'productFooter'}
                 />
             </div>
         </div>

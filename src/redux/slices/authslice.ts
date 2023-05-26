@@ -1,5 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { FailureAction, SetUserDetailsAction, UserState, SuccessAction } from 'types/auth.type';
+import {
+    FailureAction,
+    SetUserDetailsAction,
+    UserState,
+    SuccessAction,
+    SetSelectProductAction,
+    PlanSelectionAction,
+} from 'types/auth.type';
 
 export const initialState: UserState = {
     userDetails: {
@@ -12,13 +19,18 @@ export const initialState: UserState = {
         loginToken: '',
         roles: [],
         userProfile: [],
+        productId: '',
+        planId: '',
+        devices: null,
     },
+
     isLoggedIn: false,
     successMessage: '',
     failureMessage: '',
     respCode: null,
     clearStore: '',
 };
+// need to declare some states for on page laod api response for select product
 
 const authSlice = createSlice({
     name: 'signup',
@@ -38,6 +50,16 @@ const authSlice = createSlice({
             state.successMessage = action.payload.message;
             state.isLoggedIn = action.payload.isLoggedIn;
         },
+
+        // select product state updation
+        setSelectProduct: (state, action: SetSelectProductAction) => {
+            state.userDetails.productId = action.payload.productId;
+        },
+
+        setPlanSelection: (state, action: PlanSelectionAction) => {
+            state.userDetails.planId = action.payload.planId;
+        },
+
         setSuccessData: (state, action: SuccessAction) => {
             state.successMessage = action.payload.message;
             state.respCode = action.payload.code;
@@ -56,5 +78,6 @@ const authSlice = createSlice({
         },
     },
 });
-export const { setUserDetails, setSuccessData, setFailureData, setClearRespMessage } = authSlice.actions;
+export const { setUserDetails, setSuccessData, setFailureData, setClearRespMessage, setSelectProduct,setPlanSelection } =
+    authSlice.actions;
 export default authSlice.reducer;

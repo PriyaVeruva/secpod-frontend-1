@@ -1,0 +1,45 @@
+@use '../../styles/config.scss' as *;
+.productSelectionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.headerContent {
+    text-align: center;
+    margin-block: 80px 120px;
+}
+.productSelection {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+
+    @include mobile {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @include mobile-small {
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+        border-radius: 8px;
+        box-shadow: 0 0 20px 10px $box-shadow-color;
+        background-color: $white;
+        display: flex;
+        flex-direction: column;
+        padding-inline: 5vh;
+        width: 324px;
+        .cardHeaderContent {
+            font-family: $barlow-bold;
+            font-size: 24px;
+            color: $header-color;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            .image {
+                margin: 20px;
+            }
+        }
+    }
+}
