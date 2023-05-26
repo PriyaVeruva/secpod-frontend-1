@@ -1,0 +1,18 @@
+@use '../../styles/config.scss' as *;
+
+.topContainer {
+    background: linear-gradient(45deg, $bg-gradient-top, $bg-gradient-bottom);
+
+    .container {
+        background: url('../../assets/images/product-selection.svg') no-repeat right;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+
+        @include mobile {
+            background-position: left;
+            height: auto;
+        }
+    }
+}

@@ -22,7 +22,6 @@
         margin-bottom: 30px;
     }
 }
-
 .cardContentSection {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -34,6 +33,6 @@
 
     @include mobile-small {
         grid-template-columns: repeat(1, minmax(0, 1fr));
-        padding-inline: 4vh;
+        padding-inline: 3vh;
     }
 }

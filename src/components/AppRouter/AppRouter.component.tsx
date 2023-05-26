@@ -8,6 +8,8 @@ import LoginPage from '../../pages/LoginPage/LoginPage';
 import SignUpPage from '../../pages/SignUpPage/SignUpPage';
 import ChangePwd from 'pages/ChangePwd/ChangePwd';
 import RedirectPage from 'pages/RedirectPage/RedirectPage';
+import ProductSelection from 'pages/ProductSelection/ProductSelection';
+import PlanSelectionPage from 'pages/PlanSelection';
 
 export default function AppRouter(): JSX.Element {
     return (
@@ -19,6 +21,8 @@ export default function AppRouter(): JSX.Element {
                 <Route path={ROUTES.login} element={<LoginPage />} />
                 <Route path={ROUTES.signUp} element={<SignUpPage />} />
                 <Route path={ROUTES.redirect} element={<RedirectPage />} />
+                <Route path={ROUTES.productSelection} element={<ProductSelection />} />
+                <Route path={ROUTES.planSelection} element={<PlanSelectionPage />} />
             </Routes>
         </>
     );

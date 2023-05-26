@@ -9,7 +9,11 @@ export type UserState = {
         loginToken: string;
         roles: Array<string>;
         userProfile: Array<string>;
+        productId: string;
+        planId: string;
+        devices: number | null;
     };
+
     isLoggedIn: boolean;
     successMessage: string;
     failureMessage: string;
@@ -45,6 +49,22 @@ export type VerifyEmailAction = {
     type: string;
     payload: {
         email: string;
+    };
+};
+
+export type PlanSelectionAction = {
+    type: string;
+    payload: {
+        planId: string;
+    };
+};
+
+export type SelectPlanSelectionAction = {
+    type: string;
+    payload: {
+        planId: string;
+        toggleState: any;
+        devices: string;
     };
 };
 
@@ -101,3 +121,22 @@ export type FailureResponseData = {
     code: number;
     message: string;
 };
+
+// select product
+
+export type SetSelectProductAction = {
+    type: string;
+    payload: {
+        productId: string;
+    };
+};
+export type SelectProductSuccessResponse = {
+    productId: string;
+};
+
+export type PlanSelectionSuccessResponse = {
+    planId: string;
+};
+export type PlanSelectionResponse={
+//   based on response mention the types  
+}
