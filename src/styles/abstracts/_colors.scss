@@ -31,12 +31,20 @@ $bg-gradient-bottom: #edf3ee;
 
 // product-selection
 $header-color: #10171d;
-$box-shadow-color: rgba(35, 187, 45, 0.04);
+$box-shadow-color: rgba(35 187 45/ 4%);
 $bg-gradient-top: #e5f4fa;
 $bg-gradient-bottom: #e9faee;
 
 // plan-selection
 $plan-header-color: #1e1f20;
 $plan-paragraph-color: #5a5f62;
-$custom-switch-border-color:rgba(151, 151, 151, 0.18);
-$custom-switch-background-color:#f9f9f9;
+$custom-switch-border-color: rgba(151 151 151/ 18%);
+$custom-switch-background-color: #f9f9f9;
+$customised-selected-color: #093e70;
+$customised-not-selected-background-color: #e3e3e3;
+
+// plan-selection pop up
+$dialog-background-color: rgba(51 51 51/ 70%);
+$billing-dialog-title-color: #000;
+$devices-dialog-content-color: #252525;
+$devices-sub-content-color: #848484;
