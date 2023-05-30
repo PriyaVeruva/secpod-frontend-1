@@ -1,16 +1,45 @@
 @use '../../../styles/config.scss' as *;
 
-.dialogTitle {
-    text-align: center;
-}
-
 .dialogContent {
     margin: 1rem;
-    text-align: center;
     overflow-y: unset !important;
 
     .actionBtns {
         text-align: center;
         margin-top: 2rem;
     }
+}
+
+.dialogContainer {
+    backdrop-filter: blur(5px);
+    background-color: $dialog-background-color;
+}
+
+.devicesDialogTitle {
+    color: $secondary-color;
+}
+
+.billingDialogTitle {
+    color: $billing-dialog-title-color;
+}
+
+.devicesDialogContent {
+    color: $devices-dialog-content-color !important;
+    margin: 1rem;
+    overflow-y: unset !important;
+}
+
+.billingDialogContent {
+    overflow-y: unset !important;
+
+    span {
+        margin-block: 24px 30px;
+    }
+}
+
+.devicesSubContent {
+    font-family: $futura-book !important;
+    color: $devices-sub-content-color !important;
+    font-size: 14px !important;
+    margin-block: 10px 40px !important;
 }

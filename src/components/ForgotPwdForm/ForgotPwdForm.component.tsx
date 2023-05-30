@@ -31,7 +31,7 @@ export default function ForgotPwdForm(): JSX.Element {
                 {respCode === ResponseCode.Failed && <ErrorComponent>{failureMessage} </ErrorComponent>}
             </div>
             <div className={styles.btn}>
-                <CustomButton buttonText="Submit" type="submit" variant="contained" fullWidth={true} from="forgotpwd" />
+                <CustomButton buttonText="Submit" type="submit" variant="contained" fullWidth={true} />
             </div>
         </div>
     );

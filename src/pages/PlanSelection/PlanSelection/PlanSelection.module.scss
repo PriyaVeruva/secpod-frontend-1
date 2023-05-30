@@ -9,10 +9,12 @@
 
     .contentSection {
         margin-bottom: 40px;
+
         h2 {
             color: $plan-header-color;
             padding-bottom: 20px;
         }
+
         p {
             color: $plan-paragraph-color;
             font-family: $futura-book;
@@ -53,6 +55,7 @@
             }
         }
     }
+
     .devicesSubscription {
         padding: 26px 20px 20px;
         border-radius: 8px;
@@ -106,10 +109,6 @@
     background-color: $custom-switch-background-color;
 }
 
-.customSwitch.active .circleSlide {
-    transform: translateX(100%);
-}
-
 .circleSlide {
     transition: transform 0.3s ease;
     width: 56px;
@@ -117,6 +116,11 @@
     background-color: $secondary-color;
     border-radius: 100%;
 }
+
+.customSwitch.active .circleSlide {
+    transform: translateX(100%);
+}
+
 .subscriptionToggle {
     display: flex;
     justify-content: space-evenly;
@@ -126,5 +130,82 @@
         font-size: 18px;
         font-family: $futura-book;
         color: $plan-paragraph-color;
+    }
+}
+
+.modalContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    background-color: $dialog-background-color;
+
+    .mainModal {
+        text-align: center;
+        width: 746px;
+        padding: 34px 120px 40px;
+        border-radius: 12px;
+        background-color: $white;
+
+        @include mobile-small {
+            max-width: 95vw;
+            padding: 4vh;
+            overflow: auto;
+        }
+    }
+
+    .modalTitle {
+        font-size: 32px;
+        font-family: $barlow-semi-bold;
+        color: $black;
+        font-weight: 600;
+    }
+
+    .modalButtons {
+        display: flex;
+        gap: 12px;
+    }
+
+    .customisedPlans {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 15px;
+        margin-block: 40px;
+
+        @include mobile-small {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .selected,
+    .notSelected {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        font-size: 18px;
+        font-family: $futura-book;
+        cursor: pointer;
+
+        @include mobile-small {
+            font-size: 14px;
+        }
+    }
+
+    .selected {
+        padding: 16px 20px 16px 23px;
+        border-radius: 8px;
+        border: solid 1px $customised-selected-color;
+        background-color: $button-text-color;
+        color: $customised-selected-color;
+    }
+
+    .notSelected {
+        border-radius: 4px;
+        background-color: $customised-not-selected-background-color;
+        padding: 18px 23px 17px 24px;
+        color: $plan-paragraph-color;
+        border: none;
     }
 }

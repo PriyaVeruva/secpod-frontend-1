@@ -11,7 +11,7 @@ export type UserState = {
         userProfile: Array<string>;
         productId: string;
         planId: string;
-        devices: number | null;
+        devices: string;
     };
 
     isLoggedIn: boolean;

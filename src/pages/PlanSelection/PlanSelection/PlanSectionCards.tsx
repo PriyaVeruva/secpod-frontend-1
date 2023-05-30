@@ -6,13 +6,16 @@ import { ReduxStoreType } from 'types/store.type';
 import { authSagaActions } from 'redux/sagas/sagaActions/auth.actions';
 import ResponseCode from 'enums/responseCode';
 import { useNavigate, useParams } from 'react-router-dom';
+import ModalContainer from './CustomisedPlansModal';
+import { text } from 'utils/text.utils';
+import ConfirmationDialog from 'components/common/2000DevicesPopUp/ConfirmationDialog';
 interface planSelectionCardProps {
     heading: string;
     subHeading: Array<string>;
     featuresText: string;
     id: number;
     features: Array<string>;
-    devices: string;
+    devices: number;
     subscriptionState: any;
 }
 function PlanSectionCards({
@@ -26,11 +29,13 @@ function PlanSectionCards({
 }: planSelectionCardProps): JSX.Element {
     const { step } = useParams();
     const [isHovered, setIsHovered] = useState(null);
-    const [toggle, setToggle] = useState(false);
+    const [modalOpen, setModalOpen] = useState<boolean>(false); //customised plans state
+    const [isOpen, setIsOpen] = useState<boolean>(false); //2000 devices state
+
     const navigate = useNavigate();
     const state = useSelector((state: ReduxStoreType) => state.user);
-
     const dispatch = useDispatch();
+
     const handleMouseEnter = (id: any): void => {
         setIsHovered(id);
     };
@@ -39,7 +44,7 @@ function PlanSectionCards({
     };
     // once user clicks on plans cards needs to trigger post api where needs to pass plans id
 
-    const handlePlanSelect = (): void => {
+    function closeConfiramtionDialog(): void {
         dispatch({
             type: authSagaActions.SELECT_PLAN_PRODUCTS,
             planId: state.userDetails.planId,
@@ -50,25 +55,62 @@ function PlanSectionCards({
                 planId: state.userDetails.planId,
             },
         });
-
+        // need to chnage
         if (state.respCode !== ResponseCode.Success) {
             if (step == '0') {
-                navigate('/plan-selection/1');
+                navigate('/plan-selection/2');
             }
         }
+        setIsOpen(false);
+    }
 
-        if (id === 5 || id === 6) {
-            setToggle(!toggle);
+    function handleMoreThan2000Devices(): JSX.Element {
+        return (
+            <ConfirmationDialog
+                title={text.moreThan2000Devices.HEADER_CONTENT}
+                content={text.moreThan2000Devices.PARAGRAPH_CONTENT}
+                isOpen={isOpen}
+                onClose={closeConfiramtionDialog}
+                buttonText={text.moreThan2000Devices.BUTTON_CONTENT}
+                subContent={text.moreThan2000Devices.SUB_PARAGRAPH_CONTENT}
+            />
+        );
+    }
+
+    const handlePlanSelect = (): void => {
+        // after choosing either 5 or 6 cards then pop up will come their clicking on confirm post api will trigger and navigates to billing
+        if (devices < 2000 && (id === 5 || id === 6)) {
+            setModalOpen(!modalOpen);
+        }
+        if (devices >= 2000 && !(id === 5 || id === 6)) {
+            setIsOpen(true);
+        }
+        if (devices >= 2000 && (id === 5 || id === 6)) {
+            setModalOpen(!modalOpen);
+        }
+
+        if (id !== 5 && id !== 6 && devices !== 0 && devices < 2000) {
+            dispatch({
+                type: authSagaActions.SELECT_PLAN_PRODUCTS,
+                planId: state.userDetails.planId,
+                // here devices and subscription state which i maintained localy not in redux
+                payload: {
+                    devices,
+                    subscriptionState,
+                    planId: state.userDetails.planId,
+                },
+            });
+            if (state.respCode !== ResponseCode.Success) {
+                if (step == '0') {
+                    navigate('/plan-selection/1');
+                }
+            }
         }
     };
     // as of now readign mock data once api triggers we get response Data here need to read data from getProducts using useSelector
     return (
         <>
-            <div
-                className={styles.cardContents}
-                onMouseEnter={() => handleMouseEnter(id)}
-                onMouseLeave={() => handleMouseLeave()}
-            >
+            <div className={styles.cardContents}>
                 <div className={'sanerNowCardContentsSection'}>
                     <div className={heading.toLowerCase().includes('advanced') ? 'ribbon' : ' '}>
                         <section>
@@ -107,7 +149,13 @@ function PlanSectionCards({
                             );
                         })}
                     </div>
+                </div>
 
+                <div
+                    onMouseEnter={(): void => handleMouseEnter(id)}
+                    onMouseLeave={(): void => handleMouseLeave()}
+                    className={styles.selectButton}
+                >
                     <CustomButton
                         variant={isHovered === id ? 'contained' : 'outlined'}
                         type="submit"
@@ -119,6 +167,16 @@ function PlanSectionCards({
                     />
                 </div>
             </div>
+            <ModalContainer
+                open={modalOpen}
+                setModalOpen={setModalOpen}
+                setIsOpen={setIsOpen}
+                devices={devices}
+                id={id}
+                subscriptionState={subscriptionState}
+            />
+
+            {isOpen && handleMoreThan2000Devices()}
         </>
     );
 }

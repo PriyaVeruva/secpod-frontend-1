@@ -68,13 +68,7 @@ export default function ChangePwdForm({ err, setErr }: PropType): JSX.Element {
             )}
 
             <div className={styles.btn}>
-                <CustomButton
-                    buttonText="set new password"
-                    type="submit"
-                    variant="contained"
-                    fullWidth={true}
-                    from="forgotpwd"
-                />
+                <CustomButton buttonText="set new password" type="submit" variant="contained" fullWidth={true} />
             </div>
         </>
     );
