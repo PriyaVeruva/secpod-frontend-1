@@ -66,8 +66,8 @@ function PlanSectionCards({
         <>
             <div
                 className={styles.cardContents}
-                onMouseEnter={() => handleMouseEnter(id)}
-                onMouseLeave={() => handleMouseLeave()}
+                onMouseEnter={(): void => handleMouseEnter(id)}
+                onMouseLeave={(): void => handleMouseLeave()}
             >
                 <div className={'sanerNowCardContentsSection'}>
                     <div className={heading.toLowerCase().includes('advanced') ? 'ribbon' : ' '}>

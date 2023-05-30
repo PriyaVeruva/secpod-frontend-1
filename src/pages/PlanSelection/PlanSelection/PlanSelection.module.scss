@@ -9,10 +9,12 @@
 
     .contentSection {
         margin-bottom: 40px;
+
         h2 {
             color: $plan-header-color;
             padding-bottom: 20px;
         }
+
         p {
             color: $plan-paragraph-color;
             font-family: $futura-book;
@@ -53,6 +55,7 @@
             }
         }
     }
+
     .devicesSubscription {
         padding: 26px 20px 20px;
         border-radius: 8px;
@@ -106,10 +109,6 @@
     background-color: $custom-switch-background-color;
 }
 
-.customSwitch.active .circleSlide {
-    transform: translateX(100%);
-}
-
 .circleSlide {
     transition: transform 0.3s ease;
     width: 56px;
@@ -117,6 +116,11 @@
     background-color: $secondary-color;
     border-radius: 100%;
 }
+
+.customSwitch.active .circleSlide {
+    transform: translateX(100%);
+}
+
 .subscriptionToggle {
     display: flex;
     justify-content: space-evenly;
