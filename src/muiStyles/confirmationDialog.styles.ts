@@ -7,6 +7,7 @@ const muiConfirmationDialogStyles = {
         fontSize: '32px',
         fontFamily: 'Barlow-SemiBold',
         paddingTop: '24px',
+        textAlign: 'center',
     },
     '& .MuiDialogContent-root': {
         display: 'flex',
@@ -16,6 +17,7 @@ const muiConfirmationDialogStyles = {
         fontSize: '18px',
         color: '#8f8f8f',
         fontFamily: 'Futura-Book',
+        textAlign: 'center',
     },
 };
 

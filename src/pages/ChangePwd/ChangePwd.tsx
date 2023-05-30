@@ -69,7 +69,7 @@ export default function ChangePwd(): JSX.Element {
                 content={text.changePassword.SUCCESS_MESSAGE}
                 isOpen={isOpen}
                 onClose={closeConfiramtionDialog}
-                buttonText
+                buttonText={'LOGIN'}
             />
         );
     }

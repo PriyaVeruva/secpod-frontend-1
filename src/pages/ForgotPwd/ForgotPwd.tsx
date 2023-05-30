@@ -52,6 +52,7 @@ export default function ForgotPwd(): JSX.Element {
                 onClose={closeConfiramtionDialog}
                 title={text.forgotPwd.DIALOG_HEADER}
                 content={text.forgotPwd.DIALOG_CONTENT}
+                buttonText={'Done'}
             />
             <div className={styles.container}>
                 <AuthHeader header={'Forgot Password'} />

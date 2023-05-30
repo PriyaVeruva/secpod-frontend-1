@@ -21,7 +21,7 @@ export const initialState: UserState = {
         userProfile: [],
         productId: '',
         planId: '',
-        devices: null,
+        devices: '',
     },
 
     isLoggedIn: false,
@@ -51,6 +51,10 @@ const authSlice = createSlice({
             state.isLoggedIn = action.payload.isLoggedIn;
         },
 
+        setDevices: (state, action) => {
+            state.userDetails.devices = action.payload;
+        },
+
         // select product state updation
         setSelectProduct: (state, action: SetSelectProductAction) => {
             state.userDetails.productId = action.payload.productId;
@@ -75,9 +79,17 @@ const authSlice = createSlice({
             state.respCode = null;
             state.failureMessage = '';
             state.successMessage = '';
+            state.userDetails.devices = '';
         },
     },
 });
-export const { setUserDetails, setSuccessData, setFailureData, setClearRespMessage, setSelectProduct,setPlanSelection } =
-    authSlice.actions;
+export const {
+    setUserDetails,
+    setSuccessData,
+    setFailureData,
+    setClearRespMessage,
+    setSelectProduct,
+    setPlanSelection,
+    setDevices,
+} = authSlice.actions;
 export default authSlice.reducer;

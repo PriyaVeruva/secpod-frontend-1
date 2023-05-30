@@ -4,7 +4,9 @@ export type ConfirmationDialogProps = {
     isOpen: boolean;
     title?: ReactNode;
     content: ReactNode;
-    buttonText?: boolean;
+
+    subContent?: ReactNode;
+    buttonText: string;
     onClose: () => void;
     onSuccess?: () => void;
     onCancel?: () => void;

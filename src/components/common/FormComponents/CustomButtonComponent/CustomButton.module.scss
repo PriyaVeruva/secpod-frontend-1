@@ -20,12 +20,30 @@
     height: 56px !important;
 }
 
-.productFooter {
+.productFooter,
+.cancel {
     border-radius: 4px !important;
-    border: solid 1px #012f51 !important;
+    border: solid 1px $primary-color !important;
     color: $primary-color !important;
     font-size: 18px !important;
     margin-block: 20px !important;
     font-weight: 500 !important;
     text-transform: capitalize !important;
+}
+
+.cancel {
+    background-color: $white;
+}
+
+.devicesSmallButton {
+    font-family: $futura-book !important;
+    font-size: 16px !important;
+    line-height: 2rem !important;
+    text-transform: capitalize !important;
+    width: 384px !important;
+    height: 56px !important;
+
+    @include mobile-small {
+        width: 230px !important;
+    }
 }

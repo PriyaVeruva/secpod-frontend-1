@@ -62,6 +62,7 @@ function SignUpForm({ padding, createAccount }: PropType): JSX.Element {
                 content={successMessage}
                 isOpen={isOpen}
                 onClose={closeConfiramtionDialog}
+                buttonText={'Done'}
             />
         );
     }

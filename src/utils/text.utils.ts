@@ -62,4 +62,11 @@ export const text = {
         PARAGRAPH_CONTENT: 'Trusted by millions,Saner now secure teams all around the world',
         DEVICES_PARAGRAPH_CONTENT: 'Enter the number of devices',
     },
+    moreThan2000Devices: {
+        HEADER_CONTENT: 'Thank you',
+        PARAGRAPH_CONTENT: 'We have recived your request our sales team will get in touch with.',
+        SUB_PARAGRAPH_CONTENT:
+            'If you have any questions or concerns,please dont hesitate to reach out to our customer support team.',
+        BUTTON_CONTENT: 'Start Your Free Trial',
+    },
 };

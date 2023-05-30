@@ -5,16 +5,31 @@ import { text } from 'utils/text.utils';
 import PlanSectionCards from './PlanSectionCards';
 import { cardContainerData2 } from 'pages/LandingPage/data';
 import { TextField } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SubscriptionPlans from 'enums/subscriptionPlans';
+import ErrorComponent from 'components/common/FormComponents/ErrorComponent/Error.Component';
+import { useDispatch, useSelector } from 'react-redux';
+import { ReduxStoreType } from 'types/store.type';
+import { setClearRespMessage, setDevices } from 'redux/slices/authslice';
 
 function PlanSelectionContainer(): JSX.Element {
-    const [devices, setDevices] = useState('');
     const [subscriptionState, setSubscriptionState] = useState(SubscriptionPlans.Monthly);
+    const state = useSelector((state: ReduxStoreType) => state.user);
+    const devicesValue = state.userDetails.devices;
+    const devices = parseInt(devicesValue);
 
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(setClearRespMessage());
+    }, []);
     const handleChange = (e: any): void => {
-        setDevices(e.target.value);
+        dispatch({
+            type: setDevices,
+            payload: parseInt(e.target.value),
+        });
     };
+
     const handleToggleChange = (): void => {
         setSubscriptionState((prevState) =>
             prevState === SubscriptionPlans.Monthly ? SubscriptionPlans.Annually : SubscriptionPlans.Monthly,
@@ -41,12 +56,13 @@ function PlanSelectionContainer(): JSX.Element {
                         >
                             <TextField
                                 label={'Devices'}
-                                value={devices}
+                                value={devicesValue}
                                 onChange={handleChange}
                                 name="devices"
                                 type="number"
                                 fullWidth
                             />
+                            {devices === 0 && <ErrorComponent>{'Devices cant be Zero'}</ErrorComponent>}
                         </div>
                     </div>
                 </div>
