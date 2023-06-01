@@ -1,0 +1,185 @@
+@use '../../styles/config.scss' as *;
+
+.mainContainer {
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pageHeading {
+  font-family: $barlow-bold;
+  font-size: 48px;
+  color: $plan-header-color;
+  margin-bottom: 15px;
+}
+
+.subHeading {
+  font-family: $futura;
+  font-size: 24px;
+  color: #5a5f62;
+  margin-bottom: 5vh;
+}
+
+.serverContainer {
+  border-radius: 8px;
+  box-shadow: 0 0 20px 10px rgba(35 187 45 / 4%);
+  background-color: $white;
+  padding: 40px 17px 60px 40px;
+  margin-bottom: 5vh;
+
+  .heading {
+    font-family: $futura;
+    font-size: 18px;
+    font-weight: 500;
+    color: $plan-header-color;
+    margin-bottom: 10px;
+  }
+
+  .serverOptionsCont {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+
+    .serverOptions {
+      width: 100%;
+      max-width: 150px;
+      border-radius: 8px;
+      padding-block: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      font-family: $futura;
+      color: $devices-sub-content-color;
+      border: solid 1px $custom-switch-border-color;
+      background-color: $custom-switch-background-color;
+      cursor: pointer;
+      transition: 0.25s ease-in-out;
+
+      svg {
+        color: black;
+        transition: 0.25s ease-in-out;
+      }
+
+      &.active {
+        background-color: $secondary-color;
+        border: solid 1px $secondary-color;
+        color: $white;
+
+        svg {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .helperText {
+    max-width: 320px;
+    color: $plan-header-color;
+    margin-bottom: 20px;
+    font-family: $futura;
+  }
+
+  .email {
+    font-family: $barlow;
+    font-size: 18px;
+    color: $secondary-color;
+  }
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  text-align: center;
+
+  .backButton {
+    padding-block: 20px;
+    border-radius: 4px;
+    border: solid 1px #051a06;
+    background-color: $white;
+    color: $black;
+    width: 33%;
+    cursor: pointer;
+  }
+
+  .continueButton {
+    padding-block: 20px;
+    border-radius: 4px;
+    background-color: $secondary-color;
+    color: $white;
+    width: 67%;
+    cursor: pointer;
+  }
+}
+
+.dialogueContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6vh 2vw 5vh;
+
+  .dialogueHeading {
+    font-family: $barlow;
+    font-size: 32px;
+    font-weight: 600;
+    color: #1e1f20;
+    margin-bottom: 10px;
+  }
+
+  .dialogueSubHeading {
+    font-family: $futura;
+    font-size: 18px;
+    color: #848484;
+    margin-bottom: 5vh;
+  }
+
+  .configureButton {
+    padding-block: 20px;
+    border-radius: 4px;
+    background-color: $secondary-color;
+    color: $white;
+    cursor: pointer;
+    max-width: 60%;
+    min-width: 200px;
+    text-align: center;
+  }
+}
+
+@media screen and (width <=650px) {
+  .serverContainer {
+    padding: 5vh 5vw;
+  }
+
+  .pageHeading {
+    font-size: 26px;
+  }
+
+  .subHeading {
+    font-size: 20px;
+  }
+}
+
+@media screen and (width <=450px) {
+  .mainContainer {
+    padding-inline: 5vw;
+  }
+
+  .pageHeading {
+    font-size: 20px;
+  }
+
+  .helperText {
+    font-size: 14px;
+  }
+
+  .subHeading,
+  .email {
+    font-size: 16px;
+  }
+}
