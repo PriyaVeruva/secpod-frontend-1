@@ -50,7 +50,7 @@
   width: 45%;
   padding: 40px;
   border-radius: 16px;
-  box-shadow: 0 0 20px 10px rgba(35 187 45 4%);
+  box-shadow: 0 0 20px 10px rgba(35 187 45 / 4%);
   background-color: #fff;
 
   @include mobile {
@@ -84,7 +84,7 @@
     color: #5a5f62;
     padding-block: 18px;
     border-radius: 8px;
-    border: solid 1px rgba(151 151 151 18%);
+    border: solid 1px rgba(151 151 151 / 18%);
     background-color: #f9f9f9;
     min-width: 130px;
     flex: 1;
@@ -155,7 +155,7 @@
 .section2 {
   padding: 40px;
   border-radius: 16px;
-  box-shadow: 0 0 20px 10px rgba(35 187 45 4%);
+  box-shadow: 0 0 20px 10px rgba(35 187 45 / 4%);
   background-color: #fff;
   margin-top: clamp(10px, 3vh, 20px);
 
@@ -221,7 +221,7 @@
     align-items: center;
     padding: 40px;
     border-radius: 16px;
-    box-shadow: 0 0 20px 10px rgba(35 187 45 4%);
+    box-shadow: 0 0 20px 10px rgba(35 187 45 / 4%);
     background-color: #fff;
 
     .paymentLabel {
@@ -241,7 +241,7 @@
     .upgradePlanCont {
       padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 0 6px 0 rgba(0 0 0 10%);
+      box-shadow: 0 0 6px 0 rgba(0 0 0 / 10%);
       background-color: #fff;
 
       .text {
