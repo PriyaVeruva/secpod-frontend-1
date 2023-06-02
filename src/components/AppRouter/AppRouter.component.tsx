@@ -11,6 +11,7 @@ import RedirectPage from 'pages/RedirectPage/RedirectPage';
 import ProductSelection from 'pages/ProductSelection/ProductSelection';
 import PlanSelectionPage from 'pages/PlanSelection';
 import Deploy from 'pages/Deploy/Deploy';
+import AdminUserDetails from 'pages/AdminUserDetails/AdminUserDetails';
 
 export default function AppRouter(): JSX.Element {
     return (
@@ -25,6 +26,7 @@ export default function AppRouter(): JSX.Element {
                 <Route path={ROUTES.productSelection} element={<ProductSelection />} />
                 <Route path={ROUTES.planSelection} element={<PlanSelectionPage />} />
                 <Route path={ROUTES.deploy} element={<Deploy />} />
+                <Route path={ROUTES.adminUserDetails} element={<AdminUserDetails />} />
             </Routes>
         </>
     );

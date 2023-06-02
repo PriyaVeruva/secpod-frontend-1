@@ -1,0 +1,140 @@
+@use '../../styles/config.scss' as *;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 2vw;
+  background-color: white;
+}
+
+.logo {
+  margin-right: 4vw;
+}
+
+.flexGroup {
+  display: flex;
+  align-items: center;
+}
+
+.navLinks {
+  display: flex;
+  justify-content: space-between;
+  min-width: 350px;
+  font-family: $futura;
+  font-size: 20px;
+  font-weight: 500;
+  color: #7a7a7a;
+  transition: 0.25s ease-in-out;
+
+  .active {
+    color: #012f51;
+    font-weight: 600;
+  }
+}
+
+.profile {
+  margin-left: 2vw;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  background-color: black;
+}
+
+.productTypeSelect {
+  >div {
+    padding-block: 10px;
+    border: 2px solid #23bb2d;
+
+    >span:first-of-type {
+      background-color: #23bb2d;
+      color: $white;
+      font-family: $futura;
+      padding: 4px;
+      margin-right: 10px;
+      border-radius: 6px;
+    }
+
+    >span:last-of-type {
+      text-transform: uppercase;
+      color: #23bb2d;
+    }
+  }
+}
+
+.menuIcon {
+  background-color: #23bb2d;
+  color: $white;
+  font-family: $futura;
+  padding: 1px 3px;
+  margin-right: 10px;
+  border-radius: 6px;
+}
+
+.menuText {
+  text-transform: uppercase;
+  color: #23bb2d;
+}
+
+.bodyContainer {
+  background-color: #F0EFEF;
+  min-height: calc(100dvh - 70px);
+  margin-top: 70px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.sideNav {
+  background-color: $white;
+  width: 20%;
+  padding: 6vh 1vw;
+  border-radius: 16px;
+  min-width: 250px;
+
+  .heading {
+    font-size: 24px;
+    font-weight: 500;
+    font-family: $barlow;
+    padding-left: 1vw;
+    color: $black;
+    margin-bottom: 20px;
+  }
+
+  .sideNavEle {
+    display: flex;
+    align-items: center;
+    padding: 1vw;
+    border-radius: 16px;
+    color: #757575;
+    font-family: $barlow;
+    max-height: calc(100dvh - 110px);
+    transition: 0.25s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(117 117 117 4%);
+    }
+
+    .sideNavText {
+      margin-left: 5px;
+    }
+
+    &.active {
+      background-color: #f0efef;
+      color: #23bb2d;
+
+      .sideNavText {
+        font-weight: 600;
+      }
+
+      &:hover {
+        background-color: #f0efef;
+      }
+    }
+  }
+}

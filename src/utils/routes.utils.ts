@@ -7,5 +7,6 @@ export const ROUTES = {
     redirect: '/redirect',
     productSelection: '/product-selection',
     planSelection: '/plan-selection/:step',
-    deploy: '/deploy'
+    deploy: '/deploy',
+    adminUserDetails: '/admin/user-details'
 };
