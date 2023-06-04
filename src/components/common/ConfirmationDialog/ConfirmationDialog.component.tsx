@@ -19,12 +19,12 @@ export default function ConfirmationDialog({
     // };
     return (
         <Dialog open={isOpen} onClose={onClose} sx={muiConfirmationDialogStyles}>
-            {title && <DialogTitle className={styles.dialogTitle}>{title}</DialogTitle>}
+            {title && <DialogTitle>{title}</DialogTitle>}
             <DialogContent data-testid="dialog-content" className={styles.dialogContent}>
                 {content}
                 <div className={styles.actionBtns}>
                     <CustomButton
-                        buttonText={buttonText ? 'LOGIN' : 'Done'}
+                        buttonText={buttonText}
                         variant="contained"
                         type="button"
                         onClick={onClose}

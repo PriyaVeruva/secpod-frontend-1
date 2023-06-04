@@ -9,28 +9,41 @@ import { useNavigate, useParams } from 'react-router-dom';
 import ModalContainer from './CustomisedPlansModal';
 import { text } from 'utils/text.utils';
 import ConfirmationDialog from 'components/common/2000DevicesPopUp/ConfirmationDialog';
+
 interface planSelectionCardProps {
     heading: string;
     subHeading: Array<string>;
-    featuresText: string;
-    id: number;
+    id: string;
     features: Array<string>;
     devices: number;
     subscriptionState: any;
+    setErr: React.Dispatch<React.SetStateAction<boolean>>;
+    err: boolean;
 }
 function PlanSectionCards({
     heading,
     subHeading,
-    featuresText,
     features,
     id,
     devices,
     subscriptionState,
+    setErr,
+    err,
 }: planSelectionCardProps): JSX.Element {
     const { step } = useParams();
     const [isHovered, setIsHovered] = useState(null);
     const [modalOpen, setModalOpen] = useState<boolean>(false); //customised plans state
     const [isOpen, setIsOpen] = useState<boolean>(false); //2000 devices state
+    const customisedHeader = heading
+        .toLowerCase()
+        .split(' ')
+        .join('')
+        .includes(text.planSelection.CUSTOMISED_PLAN_HEADER);
+    const unlimitedAccessHeader = heading
+        .toLowerCase()
+        .split(' ')
+        .join('')
+        .includes(text.planSelection.UNLIMITED_PLAN_HEADER);
 
     const navigate = useNavigate();
     const state = useSelector((state: ReduxStoreType) => state.user);
@@ -44,15 +57,14 @@ function PlanSectionCards({
     };
     // once user clicks on plans cards needs to trigger post api where needs to pass plans id
 
-    function closeConfiramtionDialog(): void {
+    function closeConfiramtionDialog(id: any): void {
         dispatch({
             type: authSagaActions.SELECT_PLAN_PRODUCTS,
-            planId: state.userDetails.planId,
             // here devices and subscription state which i maintained localy not in redux
             payload: {
                 devices,
                 subscriptionState,
-                planId: state.userDetails.planId,
+                planId: id,
             },
         });
         // need to chnage
@@ -70,34 +82,38 @@ function PlanSectionCards({
                 title={text.moreThan2000Devices.HEADER_CONTENT}
                 content={text.moreThan2000Devices.PARAGRAPH_CONTENT}
                 isOpen={isOpen}
-                onClose={closeConfiramtionDialog}
+                onClose={(): void => closeConfiramtionDialog(id)}
                 buttonText={text.moreThan2000Devices.BUTTON_CONTENT}
                 subContent={text.moreThan2000Devices.SUB_PARAGRAPH_CONTENT}
             />
         );
     }
 
-    const handlePlanSelect = (): void => {
+    const handlePlanSelect = (id: string): void => {
         // after choosing either 5 or 6 cards then pop up will come their clicking on confirm post api will trigger and navigates to billing
-        if (devices < 2000 && (id === 5 || id === 6)) {
+
+        if (String(devices) !== '') {
+            setErr(!err);
+        }
+
+        if (devices < 2000 && (customisedHeader || unlimitedAccessHeader)) {
             setModalOpen(!modalOpen);
         }
-        if (devices >= 2000 && !(id === 5 || id === 6)) {
+        if (devices >= 2000 && !(customisedHeader || unlimitedAccessHeader)) {
             setIsOpen(true);
         }
-        if (devices >= 2000 && (id === 5 || id === 6)) {
+        if (devices >= 2000 && (customisedHeader || unlimitedAccessHeader)) {
             setModalOpen(!modalOpen);
         }
 
-        if (id !== 5 && id !== 6 && devices !== 0 && devices < 2000) {
+        if (!customisedHeader && !unlimitedAccessHeader && devices !== 0 && devices < 2000) {
             dispatch({
                 type: authSagaActions.SELECT_PLAN_PRODUCTS,
-                planId: state.userDetails.planId,
                 // here devices and subscription state which i maintained localy not in redux
                 payload: {
                     devices,
                     subscriptionState,
-                    planId: state.userDetails.planId,
+                    planId: id,
                 },
             });
             if (state.respCode !== ResponseCode.Success) {
@@ -130,21 +146,21 @@ function PlanSectionCards({
                                 : 'subContents'
                         }
                     >
-                        {subHeading.map((ele, i) => {
+                        {subHeading.map((ele: any, i: any) => {
                             return (
                                 <div key={i} className={'subHeadings'}>
-                                    <span>{ele}</span>
+                                    <span>{ele.name}</span>
                                 </div>
                             );
                         })}
                     </div>
-                    <div className={'featuresText'}>{featuresText}</div>
+                    <div className={'featuresText'}>{'Features'}</div>
                     <div className="features">
-                        {features.map((ele, i) => {
+                        {features.map((ele: any, i: any) => {
                             return (
                                 <div className={'contents'} key={i}>
                                     <div className={'circleWithTick'}></div>
-                                    <span>{ele}</span>
+                                    <span>{ele.name}</span>
                                 </div>
                             );
                         })}
@@ -163,7 +179,7 @@ function PlanSectionCards({
                         buttonText={'Select'}
                         from={'productFooter'}
                         icons={true}
-                        onClick={handlePlanSelect}
+                        onClick={(): void => handlePlanSelect(id)}
                     />
                 </div>
             </div>
@@ -172,8 +188,9 @@ function PlanSectionCards({
                 setModalOpen={setModalOpen}
                 setIsOpen={setIsOpen}
                 devices={devices}
-                id={id}
                 subscriptionState={subscriptionState}
+                customisedHeader={customisedHeader}
+                unlimitedAccessHeader={unlimitedAccessHeader}
             />
 
             {isOpen && handleMoreThan2000Devices()}

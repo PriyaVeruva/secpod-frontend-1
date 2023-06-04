@@ -37,4 +37,19 @@ export const muiTextFieldStyles = {
             color: MUI_LABEL_ERROR,
         },
     },
+
+    profileDetails: {
+        '& .MuiInputBase-root.MuiOutlinedInput-root': {
+            gap: '20px',
+            fontSize: '18px',
+            color: '#848484',
+            backgroundColor: '#f9f9f9',
+        },
+
+        '& .MuiInputAdornment-root svg': {
+            width: '20px',
+            height: '20px',
+            color: '#000',
+        },
+    },
 };

@@ -32,7 +32,8 @@ export const text = {
         DIALOG_HEADER: 'Check your email',
         DIALOG_CONTENT: 'Please check your email for the change password link',
         LABEL: 'Enter the registered email account',
-        NAV_SIGNIN: 'Dont have SanerNow account?',
+        NAV_SIGNIN: 'Already have an account?',
+        NAV_SIGNUP: 'New to SanerNow?',
         ERR_PWD_MISMATCH: 'The passwords dont match',
     },
     signUpPage: {
@@ -44,8 +45,18 @@ export const text = {
         FORGOT_PASSWORD: 'Forgot password?',
     },
     verifyEmailPage: {
-        AUTH_HEADER: 'Successfully verified',
-        SUCCESS_MESSAGE: 'You have verified the account please login to the platform to get started',
+        SUCCESS_HEADER: 'Sign Up Confirmation',
+        SUCCESS_MESSAGE: {
+            text1: 'Your Email ID is confirmed.',
+            text2: 'You can now sign into SanerNow Platform.',
+            text3: 'Click below to Sign in.',
+        },
+        FAILURE_HEADER: 'Sign Up Failed',
+        FAILURE_MESSAGE: {
+            text1: 'Your Email ID verification is failed.',
+            text2: 'Please do Sign Up again.',
+            text3: 'Click below to Sign Up.',
+        },
     },
     changePassword: {
         AUTH_HEADER: 'Successfully change password',
@@ -61,6 +72,8 @@ export const text = {
         HEADER_CONTENT: 'SanerNow plan your way',
         PARAGRAPH_CONTENT: 'Trusted by millions,Saner now secure teams all around the world',
         DEVICES_PARAGRAPH_CONTENT: 'Enter the number of devices',
+        CUSTOMISED_PLAN_HEADER: 'customiseyourownplan',
+        UNLIMITED_PLAN_HEADER: 'getunlimitedaccesstoalltoolsandtestyourusecases',
     },
     moreThan2000Devices: {
         HEADER_CONTENT: 'Thank you',

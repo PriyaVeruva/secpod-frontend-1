@@ -3,9 +3,10 @@ import { axiosInstance } from 'utils/axios.utils';
 import { AxiosResponse } from 'axios';
 import {
     LoginAction,
-    PlanSelectionAction,
     SelectPlanSelectionAction,
+    SelectProductActionById,
     SignUpAction,
+    UpdateProfileAction,
     VerifyEmailAction,
 } from 'types/auth.type';
 
@@ -37,18 +38,24 @@ export async function authenticateGetProduct(): Promise<AxiosResponse<any>> {
     return resp.data;
 }
 
-export async function authenticatePlanSelectionProduct(
-    action: PlanSelectionAction['payload'],
+export async function authenticateSelectProduct(
+    action: SelectProductActionById['payload'],
 ): Promise<AxiosResponse<any>> {
     const resp = await axiosInstance.get(`${endpoints.getPlans}?productId=${action}`);
     return resp.data;
 }
 
-export async function authenticateSelectProduct(
+export async function authenticateSelectPlan(
     action: SelectPlanSelectionAction['payload'],
 ): Promise<AxiosResponse<any>> {
     const data = action;
     // need to specify endpoint look into it
-    const resp = await axiosInstance.post(endpoints.login, data);
+    const resp = await axiosInstance.post(endpoints.subscriptionPlans, data);
+    return resp.data;
+}
+
+export async function authenticateUpdateProfile(action: UpdateProfileAction['payload']): Promise<AxiosResponse<any>> {
+    const data = action;
+    const resp = await axiosInstance.put(endpoints.updateProfile, data);
     return resp.data;
 }

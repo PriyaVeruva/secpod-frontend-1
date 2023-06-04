@@ -12,6 +12,8 @@ export type UserState = {
         productId: string;
         planId: string;
         devices: string;
+        getProducts: Array<string>;
+        getPlans: Array<string>;
     };
 
     isLoggedIn: boolean;
@@ -49,13 +51,6 @@ export type VerifyEmailAction = {
     type: string;
     payload: {
         email: string;
-    };
-};
-
-export type PlanSelectionAction = {
-    type: string;
-    payload: {
-        planId: string;
     };
 };
 
@@ -123,20 +118,50 @@ export type FailureResponseData = {
 };
 
 // select product
-
-export type SetSelectProductAction = {
+export type GetProductAction = {
+    type: string;
+    payload: {
+        getProducts: Array<string>;
+        code: number | null;
+    };
+};
+export type GetProductSuccessResponse = {
+    getProducts: Array<string>;
+    code: number | null;
+};
+export type SelectProductActionById = {
     type: string;
     payload: {
         productId: string;
     };
 };
-export type SelectProductSuccessResponse = {
-    productId: string;
+export type GetPlansAction = {
+    type: string;
+    payload: {
+        getPlans: Array<string>;
+        code: number | null;
+    };
 };
 
+export type SelectProductSuccessResponse = {
+    //   based on response mention the types
+    getPlans: Array<string>;
+    code: number | null;
+};
 export type PlanSelectionSuccessResponse = {
     planId: string;
 };
-export type PlanSelectionResponse={
-//   based on response mention the types  
-}
+
+export type UpdateProfileAction = {
+    type: string;
+    payload: {
+        name: string;
+        phoneNumber: string;
+        email: string;
+        companyName: string;
+        roles: string[];
+        companyEmail: string;
+        companyLocation: string;
+        companyPhoneNumber: string;
+    };
+};

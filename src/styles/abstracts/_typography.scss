@@ -27,6 +27,10 @@
     font-family: Futura-Book;
     src: url('../../assets/fonts/Futura/Futura\ Book\ Regular.ttf');
 }
+@font-face {
+    font-family: WorkSans-Medium;
+    src: url('../../assets/fonts/Work-Sans/WorkSans-Medium.ttf');
+}
 
 $barlow: 'Barlow', sans-serif;
 $barlow-bold: 'Barlow-Bold', sans-serif;
@@ -35,3 +39,4 @@ $barlow-extra-bold: 'Barlow-ExtraBold';
 $barlow-medium: 'Barlow-Medium';
 $futura: 'Futura-Medium';
 $futura-book: 'Futura-Book';
+$work-sans-medium: 'WorkSans-Medium';

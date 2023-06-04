@@ -2,7 +2,6 @@ import { text } from 'utils/text.utils';
 import image1 from '../../assets/images/facebook.png';
 import CustomButton from 'components/common/FormComponents/CustomButtonComponent/CustomButton.component';
 import styles from './ProductSelection.module.scss';
-import { productSelectionData } from './data';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,6 +13,7 @@ export default function ProductSelectionContainer(): JSX.Element {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const state = useSelector((state: ReduxStoreType) => state.user);
+    const getProductsData = state.userDetails.getProducts;
     const handleMouseEnter = (i: any): void => {
         setIsHovered(i);
     };
@@ -21,13 +21,13 @@ export default function ProductSelectionContainer(): JSX.Element {
         setIsHovered(null);
     };
 
-    const handleSelectProduct = (): void => {
+    const handleSelectProduct = (id: number): void => {
         dispatch({
-            type: authSagaActions.PLAN_PRODUCTS,
-            payload: state.userDetails.productId,
+            type: authSagaActions.SELECT_PRODUCTS,
+            payload: id,
         });
         // need to change later
-        if (state.respCode !== ResponseCode.Success) {
+        if (state.respCode === ResponseCode.Success) {
             navigate('/plan-selection/0');
         }
     };
@@ -37,25 +37,25 @@ export default function ProductSelectionContainer(): JSX.Element {
             <h2 className={styles.headerContent}>{text.productSelection.HEADER_CONTENT}</h2>
 
             <div className={styles.productSelection}>
-                {productSelectionData.map((ele, i): any => {
+                {getProductsData.map((ele: any, i): any => {
                     return (
                         <div
                             className={styles.cards}
-                            key={i}
+                            key={ele.id}
                             onMouseEnter={(): void => handleMouseEnter(i)}
                             onMouseLeave={handleMouseLeave}
                         >
                             <div className={styles.cardHeaderContent}>
                                 <img className={styles.image} src={image1} alt="" />
-                                <span>{ele.productName}</span>
+                                <span>{ele.name}</span>
                             </div>
                             <div className={'featuresText'}>Features</div>
                             <div className="features">
-                                {ele.features.map((ele, i): any => {
+                                {ele.productFeatures.map((ele: any): any => {
                                     return (
-                                        <div className={'contents'} key={i}>
+                                        <div className={'contents'} key={ele.id}>
                                             <div className={'circleWithTick'}></div>
-                                            <span>{ele}</span>
+                                            <span>{ele.name}</span>
                                         </div>
                                     );
                                 })}
@@ -66,7 +66,7 @@ export default function ProductSelectionContainer(): JSX.Element {
                                 fullWidth={true}
                                 buttonText={'Select'}
                                 from="productFooter"
-                                onClick={handleSelectProduct}
+                                onClick={(): void => handleSelectProduct(ele.id)}
                                 icons={true}
                             />
                         </div>

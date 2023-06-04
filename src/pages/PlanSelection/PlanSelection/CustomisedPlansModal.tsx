@@ -20,10 +20,19 @@ type PropTypes = {
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
     devices: number;
     subscriptionState: string;
-    id: number;
+    customisedHeader: boolean;
+    unlimitedAccessHeader: boolean;
 };
 
-const ModalContainer = ({ open, setModalOpen, id, setIsOpen, devices, subscriptionState }: PropTypes): any => {
+const ModalContainer = ({
+    open,
+    setModalOpen,
+    setIsOpen,
+    devices,
+    subscriptionState,
+    customisedHeader,
+    unlimitedAccessHeader,
+}: PropTypes): JSX.Element => {
     const [selectedPlans, setSelectedPlans] = useState<Plan[]>([]);
     // as of now i maintained seperate state for list of all plans later based on response data needs to read it from useSelector
     const state = useSelector((state: ReduxStoreType) => state.user);
@@ -41,7 +50,7 @@ const ModalContainer = ({ open, setModalOpen, id, setIsOpen, devices, subscripti
         if (selectedPlans.length === 0) {
             return;
         }
-        if (devices >= 2000 && (id === 5 || id == 6)) {
+        if (devices >= 2000 && (customisedHeader || unlimitedAccessHeader)) {
             setIsOpen(true);
         } else {
             dispatch({

@@ -90,14 +90,15 @@ function SignUpForm({ padding, createAccount }: PropType): JSX.Element {
                                         />
                                     )}
                                 </Field>
-                                {ele.name === 'email' && (
-                                    <div className="errContainer">
-                                        {respCode === ResponseCode.Failed &&
-                                            failureMessage.toLowerCase().includes('email') && (
-                                                <ErrorComponent>{failureMessage} </ErrorComponent>
-                                            )}
-                                    </div>
-                                )}
+                                {respCode === ResponseCode.Failed &&
+                                    ((ele.name === 'name' && failureMessage.toLowerCase().includes('name')) ||
+                                        (ele.name === 'email' && failureMessage.toLowerCase().includes('email')) ||
+                                        (ele.name === 'phoneNumber' &&
+                                            failureMessage.toLowerCase().includes('phoneNumber'))) && (
+                                        <div className="errContainer">
+                                            <ErrorComponent>{failureMessage}</ErrorComponent>
+                                        </div>
+                                    )}
                             </div>
                         );
                     })}

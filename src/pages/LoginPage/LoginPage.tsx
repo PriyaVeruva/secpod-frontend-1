@@ -42,6 +42,7 @@ export default function LoginPage(): JSX.Element {
             type: authSagaActions.LOGIN_USER,
             payload: values,
         });
+        // need to change later
         if (respCode !== ResponseCode.Success) {
             navigate('/product-selection');
         }

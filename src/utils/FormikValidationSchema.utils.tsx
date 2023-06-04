@@ -27,3 +27,14 @@ export const changePwdValidation = Yup.object({
     newPwd: passwordSchema.required('Password is required'),
     confirmPwd: Yup.string().required('Password is required'),
 });
+
+export const profilePageValidation = Yup.object({
+    name: nameSchema.required('Name is required'),
+    phoneNumber: mobileSchema.required('Mobile number is required'),
+    email: emailSchema.required('Email is required'),
+    role: Yup.string().required('Role is required'),
+    companyName: nameSchema.required('company name is required'),
+    companyLocation: Yup.string().required('CompanyLocation is required'),
+    companyEmail: emailSchema.required('Company Email is required'),
+    companyPhoneNumber: mobileSchema.required('Company Phone Number is required'),
+});

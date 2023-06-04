@@ -61,7 +61,10 @@ export default function ForgotPwd(): JSX.Element {
                         <ForgotPwdForm />
                     </Form>
                 </Formik>
-                <AuthFooter footerBody={text.forgotPwd.NAV_SIGNIN} linkTo="signup" />
+                <div className={styles.textAlign}>
+                    <AuthFooter footerBody={text.forgotPwd.NAV_SIGNIN} linkTo="signin" />
+                    <AuthFooter footerBody={text.forgotPwd.NAV_SIGNUP} linkTo="signup" />
+                </div>
             </div>
         </AuthContainer>
     );

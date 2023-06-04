@@ -14,6 +14,8 @@ function TextFieldComponent({
     form,
     endAdornment,
     startAdornment,
+    placeholder,
+    sx,
 }: TextFieldInputProps): JSX.Element {
     const hasError = form.touched[field.name] && Boolean(form.errors[field.name]) ? true : false;
     const dispatch = useDispatch();
@@ -34,12 +36,13 @@ function TextFieldComponent({
                 autoComplete="off"
                 fullWidth={true}
                 error={hasError}
-                sx={muiTextFieldStyles.default}
+                sx={sx ? sx && muiTextFieldStyles.profileDetails : muiTextFieldStyles.default}
                 helperText={hasError ? form.errors[field.name] : null}
                 InputProps={{
                     endAdornment: endAdornment,
                     startAdornment: startAdornment,
                 }}
+                placeholder={placeholder}
             />
         </div>
     );
