@@ -8,7 +8,7 @@ interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonE
     buttonText: string;
     variant?: 'text' | 'outlined' | 'contained';
     type?: 'button' | 'submit' | 'reset';
-    from?: 'footer' | 'cancel' | 'smallButton' | 'productFooter' | 'devicesSmallButton';
+    from?: 'footer' | 'cancel' | 'smallButton' | 'productFooter' | 'devicesSmallButton' | 'backButton' | 'continue' |'addMoreBtn';
     onClick?: any;
     fullWidth?: boolean;
     icons?: boolean;

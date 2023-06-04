@@ -3,7 +3,6 @@ import styles from './PlanSelection.module.scss';
 import StepperComponent from 'components/common/Stepper/StepperComponent';
 import { text } from 'utils/text.utils';
 import PlanSectionCards from './PlanSectionCards';
-import { cardContainerData2 } from 'pages/LandingPage/data';
 import { TextField } from '@mui/material';
 import { useEffect, useState } from 'react';
 import SubscriptionPlans from 'enums/subscriptionPlans';
@@ -17,12 +16,15 @@ function PlanSelectionContainer(): JSX.Element {
     const state = useSelector((state: ReduxStoreType) => state.user);
     const devicesValue = state.userDetails.devices;
     const devices = parseInt(devicesValue);
+    const [err, setErr] = useState(false);
 
     const dispatch = useDispatch();
+    const getPlansData = state.userDetails.getPlans;
 
     useEffect(() => {
         dispatch(setClearRespMessage());
     }, []);
+    
     const handleChange = (e: any): void => {
         dispatch({
             type: setDevices,
@@ -62,7 +64,21 @@ function PlanSelectionContainer(): JSX.Element {
                                 type="number"
                                 fullWidth
                             />
-                            {devices === 0 && <ErrorComponent>{'Devices cant be Zero'}</ErrorComponent>}
+                            {err ? (
+                                devices === 0 ? (
+                                    <div className={styles.errContainer}>
+                                        <ErrorComponent>{'Devices cant be Zero'}</ErrorComponent>
+                                    </div>
+                                ) : (
+                                    !devices && (
+                                        <div className={styles.errContainer}>
+                                            <ErrorComponent>{'Devices cant be Empty'}</ErrorComponent>
+                                        </div>
+                                    )
+                                )
+                            ) : (
+                                ''
+                            )}
                         </div>
                     </div>
                 </div>
@@ -84,17 +100,18 @@ function PlanSelectionContainer(): JSX.Element {
             </div>
             <div className={styles.planSelectionCards}>
                 <div className={styles.cardContainer}>
-                    {cardContainerData2.map((ele, i): any => {
+                    {getPlansData.map((ele: any): any => {
                         return (
                             <PlanSectionCards
-                                key={i}
-                                heading={ele.heading}
-                                subHeading={ele.subHeading}
-                                featuresText={ele.featuresText}
-                                id={ele.id}
-                                features={ele.features}
+                                key={ele.id}
+                                heading={ele.name}
+                                subHeading={ele.planCategories}
+                                features={ele.planFeatures}
                                 devices={devices}
                                 subscriptionState={subscriptionState}
+                                id={ele.id}
+                                setErr={setErr}
+                                err={err}
                             />
                         );
                     })}

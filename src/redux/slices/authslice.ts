@@ -1,12 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-    FailureAction,
-    SetUserDetailsAction,
-    UserState,
-    SuccessAction,
-    SetSelectProductAction,
-    PlanSelectionAction,
-} from 'types/auth.type';
+import { FailureAction, UserState, SuccessAction, GetPlansAction, GetProductAction } from 'types/auth.type';
 
 export const initialState: UserState = {
     userDetails: {
@@ -22,6 +15,8 @@ export const initialState: UserState = {
         productId: '',
         planId: '',
         devices: '',
+        getProducts: [],
+        getPlans: [],
     },
 
     isLoggedIn: false,
@@ -36,7 +31,7 @@ const authSlice = createSlice({
     name: 'signup',
     initialState,
     reducers: {
-        setUserDetails: (state, action: SetUserDetailsAction) => {
+        setUserDetails: (state, action) => {
             state.userDetails.name = action.payload.name;
             state.userDetails.phoneNumber = action.payload.phoneNumber;
             state.userDetails.email = action.payload.email;
@@ -55,14 +50,19 @@ const authSlice = createSlice({
             state.userDetails.devices = action.payload;
         },
 
+        setGetProducts: (state, action: GetProductAction) => {
+            state.userDetails.getProducts = action.payload.getProducts;
+            state.respCode = action.payload.code;
+        },
         // select product state updation
-        setSelectProduct: (state, action: SetSelectProductAction) => {
-            state.userDetails.productId = action.payload.productId;
-        },
 
-        setPlanSelection: (state, action: PlanSelectionAction) => {
-            state.userDetails.planId = action.payload.planId;
+        setSelectProduct: (state, action: GetPlansAction) => {
+            state.userDetails.getPlans = action.payload.getPlans;
+            state.respCode = action.payload.code;
         },
+        // setPlanSelection: (state, action: PlanSelectionAction) => {
+        //     state.userDetails.planId = action.payload.planId;
+        // },
 
         setSuccessData: (state, action: SuccessAction) => {
             state.successMessage = action.payload.message;
@@ -79,7 +79,12 @@ const authSlice = createSlice({
             state.respCode = null;
             state.failureMessage = '';
             state.successMessage = '';
+            state.userDetails.email = '';
+            state.userDetails.companyName = '';
+            state.userDetails.name = '';
+            state.userDetails.phoneNumber = '';
             state.userDetails.devices = '';
+            state.userDetails.password = '';
         },
     },
 });
@@ -88,8 +93,9 @@ export const {
     setSuccessData,
     setFailureData,
     setClearRespMessage,
+    setGetProducts,
     setSelectProduct,
-    setPlanSelection,
+    // setPlanSelection,
     setDevices,
 } = authSlice.actions;
 export default authSlice.reducer;

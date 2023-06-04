@@ -47,3 +47,40 @@
         width: 230px !important;
     }
 }
+
+.backButton,
+.continue {
+    width: 247px;
+    height: 56px;
+    border-radius: 4px;
+    margin-block: 40px !important;
+}
+
+.backButton {
+    padding: 19px 99.5px 21px;
+    border: solid 2px $back-button-color !important;
+    background-color: $white !important;
+    font-size: 18px !important;
+    color: $back-button-color !important;
+}
+
+.continue {
+    padding: 19px 76px 18px 88px !important;
+    background-color: $secondary-color;
+    font-size: 16px !important;
+    font-family: $work-sans-medium !important;
+    color: $white !important;
+
+    @include mobile-small {
+        margin-block: 0 40px !important;
+    }
+}
+
+.addMoreBtn {
+    border-radius: 8px !important;
+    background-color: $black !important;
+    font-size: 18px !important;
+    color: $white !important;
+    text-transform: none !important;
+    padding: 1vh 3vh !important;
+}

@@ -6,5 +6,4 @@ function ProductSelectionComponent({ children }: any): JSX.Element {
         </div>
     );
 }
-
 export default ProductSelectionComponent;

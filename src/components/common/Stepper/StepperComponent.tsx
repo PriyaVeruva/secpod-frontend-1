@@ -32,6 +32,7 @@ function StepperComponent(): JSX.Element {
                     if (i === 1 && queryStep === '2' && devicesValue >= 2000) {
                         return null; // Return null to hide the step
                     }
+
                     return (
                         <Step key={i}>
                             <StepLabel>{label}</StepLabel>

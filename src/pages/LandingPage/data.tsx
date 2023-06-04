@@ -211,34 +211,6 @@ export const cardContainerData2 = [
             'Single Console & Single Agent',
         ],
     },
-
-    {
-        id: 5,
-        heading: 'Customise your own plan',
-        subHeading: ['SanerNow VM', 'SanerNow CM'],
-        featuresText: 'Features',
-
-        features: [
-            'Detect Vulnerabilities',
-            'Assess & Prioritize Risks',
-            'Discover Misconfigurations',
-            'Fix Misconfigurations',
-        ],
-    },
-
-    {
-        id: 6,
-        heading: 'Get unlimited access to all tools and test your UseCases.',
-        subHeading: ['SanerNow AE', 'SanerNow CPAM', 'SanerNow VM', 'SanerNow CM', 'SanerNow PM', 'SanerNow EM'],
-        featuresText: 'Features',
-
-        features: [
-            'Visualize and Normalize',
-            'Detect & Assess',
-            'Remediate & Mitigate',
-            'Single Console & Single Agent',
-        ],
-    },
 ];
 export const carouselDataContent1 = [
     {

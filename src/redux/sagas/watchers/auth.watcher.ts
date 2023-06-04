@@ -5,8 +5,9 @@ import {
     handleSendForgotPwd,
     handleVerifyEmail,
     handleGetProduct,
-    handlePlanSelection,
+    handleSelectProduct,
     handleSelectPlanSelection,
+    handleUpdateProfile,
 } from '../handlers/auth.handler';
 import { authSagaActions } from '../sagaActions/auth.actions';
 
@@ -29,11 +30,15 @@ function* getProductsWatcher(): Generator<ForkEffect<never>, void, unknown> {
     yield takeLatest(authSagaActions.GET_PRODUCTS, handleGetProduct);
 }
 function* getPlanSelectionWatcher(): Generator<ForkEffect<never>, void, unknown> {
-    yield takeLatest(authSagaActions.PLAN_PRODUCTS, handlePlanSelection);
+    yield takeLatest(authSagaActions.SELECT_PRODUCTS, handleSelectProduct);
 }
 
 function* selectPlanSelectionWatcher(): Generator<ForkEffect<never>, void, unknown> {
     yield takeLatest(authSagaActions.SELECT_PLAN_PRODUCTS, handleSelectPlanSelection);
+}
+
+function* updateProfileWatcher(): Generator<ForkEffect<never>, void, unknown> {
+    yield takeLatest(authSagaActions.UPDATE_PROFILE, handleUpdateProfile);
 }
 
 export function* authWatcher(): Generator<AllEffect<ForkEffect<void>>, void, unknown> {
@@ -45,5 +50,6 @@ export function* authWatcher(): Generator<AllEffect<ForkEffect<void>>, void, unk
         fork(getProductsWatcher),
         fork(getPlanSelectionWatcher),
         fork(selectPlanSelectionWatcher),
+        fork(updateProfileWatcher),
     ]);
 }

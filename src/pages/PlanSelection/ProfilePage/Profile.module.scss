@@ -1,0 +1,116 @@
+@use '../../../styles/config.scss' as *;
+
+.stepper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profileContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+
+    @include mobile {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profileDetails,
+    .companyDetails {
+        width: min(560px, 60%);
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 0 20px 10px $box-shadow-color;
+        background-color: $white;
+
+        @include mobile {
+            width: min(560px, 90%);
+        }
+
+        h2 {
+            font-size: 24px;
+            font-family: $barlow-semi-bold;
+            color: $black;
+
+            @include mobile {
+                text-align: center;
+            }
+        }
+    }
+
+    .profileContentSection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .imageSection {
+            margin-block: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            @include mobile {
+                flex-direction: column;
+            }
+
+            img {
+                width: 120px;
+                height: 120px;
+                padding: 1px 1px 0 0;
+                border-radius: 20px;
+            }
+
+            .uploadLink {
+                font-size: 18px;
+                color: $black;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+
+            .fileInput {
+                display: none;
+            }
+
+            .removeImage {
+                font-size: 18px;
+                text-decoration: underline;
+                color: $remove-color;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .companyDetails {
+        .pointOfContact {
+            margin-block: 40px 20px;
+
+            .addMoreBtn {
+                float: right;
+            }
+        }
+    }
+}
+
+.profileButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 8vh;
+
+    @include mobile-small {
+        flex-direction: column;
+    }
+}
+
+.errContainer {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+// input {
+//     color: $black !important;
+//     font-family: $futura;
+//     font-weight: 900;
+// }

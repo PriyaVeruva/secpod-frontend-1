@@ -23,28 +23,43 @@ export default function RedirectPage(): JSX.Element {
     }, []);
 
     const handleVerifyEmail = (): void => {
-        if (respCode !== ResponseCode.Success) {
+        if (respCode === ResponseCode.Success) {
             navigate('/login');
         } else {
-            console.log('error');
+            navigate('/signup');
         }
     };
     return (
         <div className={styles.topContainer}>
             <div className={styles.container}>
-                {respCode !== ResponseCode.Success && (
-                    <div className={styles.container_dialog}>
-                        <div className={styles.container_titleContent}>{text.verifyEmailPage.AUTH_HEADER}</div>
-                        <div className={styles.container_subContent}>{text.verifyEmailPage.SUCCESS_MESSAGE}</div>
-                        <CustomButton
-                            buttonText={'LOGIN'}
-                            variant="contained"
-                            type="button"
-                            from={'smallButton'}
-                            onClick={handleVerifyEmail}
-                        />
-                    </div>
-                )}
+                <div className={styles.container_dialog}>
+                    {respCode === ResponseCode.Success ? (
+                        <>
+                            <div className={styles.container_titleContent}>{text.verifyEmailPage.SUCCESS_HEADER}</div>
+                            <div className={styles.container_subContent}>
+                                {text.verifyEmailPage.SUCCESS_MESSAGE.text1}
+                                <div> {text.verifyEmailPage.SUCCESS_MESSAGE.text2}</div>
+                                <div> {text.verifyEmailPage.SUCCESS_MESSAGE.text3}</div>
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <div className={styles.container_titleContent}>{text.verifyEmailPage.FAILURE_HEADER}</div>
+                            <div className={styles.container_subContent}>
+                                {text.verifyEmailPage.FAILURE_MESSAGE.text1}
+                                <div> {text.verifyEmailPage.FAILURE_MESSAGE.text2}</div>
+                                <div> {text.verifyEmailPage.FAILURE_MESSAGE.text3}</div>
+                            </div>
+                        </>
+                    )}
+                    <CustomButton
+                        buttonText={respCode === ResponseCode.Success ? 'Sign In' : 'Sign Up'}
+                        variant="contained"
+                        type="button"
+                        from={'smallButton'}
+                        onClick={handleVerifyEmail}
+                    />
+                </div>
             </div>
         </div>
     );

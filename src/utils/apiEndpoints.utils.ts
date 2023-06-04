@@ -4,8 +4,10 @@ const endpoints = {
     forgotPwd: '/users/forgotPassword',
     updatePwd: '/users/updatePassword',
     verifyEmail: '/users/verifyEmail',
-    getProducts: '/users/getProducts',
-    getPlans: 'users/getPlans',
+    getProducts: '/product',
+    getPlans: '/plan',
+    subscriptionPlans: '/subscriptionPlans',
+    updateProfile: '/updateProfile',
 };
 
 export default endpoints;

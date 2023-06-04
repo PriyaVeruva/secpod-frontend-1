@@ -11,9 +11,11 @@ export interface TextFieldInputProps {
     };
     endAdornment?: string | React.ReactNode;
     startAdornment?: string | React.ReactNode;
+
     InputProps?: {
-        color?: string | undefined;
         endAdornment?: string | React.ReactNode;
         startAdornment?: string | React.ReactNode;
     };
+    placeholder?: string;
+    sx?: boolean;
 }

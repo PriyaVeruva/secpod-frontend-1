@@ -1,6 +1,7 @@
 const muiConfirmationDialogStyles = {
     '& .MuiDialog-paper': {
         borderRadius: '12px',
+        width: 'min(502px)',
     },
     '& .MuiDialogTitle-root': {
         fontWeight: 600,
