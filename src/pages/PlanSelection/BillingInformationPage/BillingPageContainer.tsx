@@ -1,12 +1,12 @@
 import ProductSelectionComponent from 'components/ProductSelectionComponent/ProductSelectionComponent';
 import StepperComponent from 'components/common/Stepper/StepperComponent';
-import styles from './BillingPage.module.scss';
+import Payments from './Payments';
+
 function BillingPageContainer(): JSX.Element {
     return (
         <ProductSelectionComponent>
-            <div className={styles.billingContainer}>
-                <StepperComponent />
-            </div>
+            <StepperComponent />
+            <Payments />
         </ProductSelectionComponent>
     );
 }
